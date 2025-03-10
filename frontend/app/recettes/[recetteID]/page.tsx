@@ -1,15 +1,15 @@
 "use client";
-import React, {JSX} from "react";
+import React, {JSX, use} from "react";
 import Text from "../../components/Text";
 import { notFound } from 'next/navigation';
 import NavBar from "../../components/NavBar";
 
 type Props = {
-  params: { recetteID: string };
+  params: Promise<{ recetteID: string }>;
 };
 
 export default function RecipePage({ params }: Props): JSX.Element {
-  const { recetteID } = params;
+  const { recetteID } = use(params);
 
   if (!recetteID) return notFound();
   return (
