@@ -1,8 +1,8 @@
 "use client";
 import React, { JSX, useCallback } from "react";
-import Text from "./components/Text";
-import { useListRecipes } from "./hooks/RecipesHooks";
-import NavBar from "./components/NavBar";
+import Text from "@/app/components/Text";
+import { useListRecipes } from "@/app/hooks/RecipesHooks";
+import NavBar from "@/app/components/NavBar";
 import { useRouter } from 'next/navigation';
 
 export default function Home(): JSX.Element {

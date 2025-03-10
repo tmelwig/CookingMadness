@@ -1,8 +1,8 @@
 "use client";
 import React, {JSX, use} from "react";
-import Text from "../../components/Text";
+import Text from "@/app/components/Text";
 import { notFound } from 'next/navigation';
-import NavBar from "../../components/NavBar";
+import NavBar from "@/app/components/NavBar";
 
 type Props = {
   params: Promise<{ recetteID: string }>;
