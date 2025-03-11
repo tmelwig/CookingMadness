@@ -7,7 +7,7 @@ export default function NavBar(): JSX.Element {
     <nav className="bg-blue-600 text-white p-4">
       <div className="container mx-auto flex justify-between">
         <Link href="/" className="text-lg font-bold">
-          Page d'accueil
+          Page d&apos;accueil
         </Link>
         <Link href="/recettes" className="text-lg">
           Recettes

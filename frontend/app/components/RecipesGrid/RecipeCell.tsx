@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Text from "@/app/components/Text";
 import Recipe from "@/app/types/recipe";
+import Image from "next/image";
 
 interface RecipeCellProps {
   recipe: Recipe;
@@ -9,7 +10,7 @@ interface RecipeCellProps {
 }
 
 const RecipeCell: React.FC<RecipeCellProps> = ({ recipe, onClick }) => {
-  function handleClick(event: React.MouseEvent<HTMLAnchorElement>) {
+  function handleClick() {
     onClick(recipe); // Calls the parent handler before navigation
   }
 
@@ -21,11 +22,19 @@ const RecipeCell: React.FC<RecipeCellProps> = ({ recipe, onClick }) => {
       onClick={handleClick}
     >
       <Text variant="title-h3">{recipe.name}</Text>
-      <Text variant="description" italic>{recipe.description}</Text>
+      <Text variant="description" italic>
+        {recipe.description}
+      </Text>
       {recipe.image_url ? (
-        <img src={recipe.image_url} alt={recipe.name} className="w-full h-48 object-cover mb-2 md:mb-5 rounded-lg shadow-md aspect-square" width={200} height={200} />
+        <Image
+          src={recipe.image_url}
+          alt={recipe.name}
+          className="w-full h-48 object-cover mb-2 md:mb-5 rounded-lg shadow-md aspect-square"
+          width={200}
+          height={200}
+        />
       ) : (
-        <Text variant="body">Pas d'image disponible...</Text>
+        <Text variant="body">Pas d&apos;image disponible...</Text>
       )}
     </Link>
   );

@@ -2,9 +2,13 @@
 import { useState, useEffect } from "react";
 import Recipe from "@/app/types/recipe";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
-export function useListRecipes(): { recipes: Recipe[]; loading: boolean; error: string | null } {
+export function useListRecipes(): {
+  recipes: Recipe[];
+  loading: boolean;
+  error: string | null;
+} {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);

@@ -1,6 +1,11 @@
 import React from "react";
 
-type TextVariant = "title-h1" | "title-h2" | "title-h3" | "description" | "body";
+type TextVariant =
+  | "title-h1"
+  | "title-h2"
+  | "title-h3"
+  | "description"
+  | "body";
 
 interface TextProps {
   children: React.ReactNode;
@@ -8,7 +13,11 @@ interface TextProps {
   italic?: boolean;
 }
 
-const Text: React.FC<TextProps> = ({ children, variant = "body", italic = false }) => {
+const Text: React.FC<TextProps> = ({
+  children,
+  variant = "body",
+  italic = false,
+}) => {
   let className = "text-lg";
 
   if (variant === "title-h1") {
