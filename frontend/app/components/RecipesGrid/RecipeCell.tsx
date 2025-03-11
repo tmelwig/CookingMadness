@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import Link from "next/link";
 import Text from "@/app/components/Text";
 import Recipe from "@/app/types/recipe";
@@ -14,6 +14,8 @@ const RecipeCell: React.FC<RecipeCellProps> = ({ recipe, onClick }) => {
     onClick(recipe); // Calls the parent handler before navigation
   }
 
+  const imageLoader = useCallback(() => recipe.image_url, [recipe.image_url]);
+
   return (
     <Link
       href={`/recettes/${recipe.id}`}
@@ -27,6 +29,7 @@ const RecipeCell: React.FC<RecipeCellProps> = ({ recipe, onClick }) => {
       </Text>
       {recipe.image_url ? (
         <Image
+          loader={imageLoader}
           src={recipe.image_url}
           alt={recipe.name}
           className="w-full h-48 object-cover mb-2 md:mb-5 rounded-lg shadow-md aspect-square"
