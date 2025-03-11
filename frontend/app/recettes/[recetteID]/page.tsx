@@ -33,18 +33,22 @@ export default function RecipePage({ params }: Props): JSX.Element {
   } = selectedRecipe as Recipe;
 
   return (
-    <div className="p-6">
+    <div>
       <NavBar />
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col items-center mb-8">
-          <Image
-            src={image_url}
-            alt={name}
-            className="w-full h-auto max-w-xl rounded-lg shadow-lg mb-4"
-            width={400}
-            height={400}
-          />
-
+          {image_url ? (
+            <Image
+              loader={() => image_url}
+              src={image_url}
+              alt={name}
+              className="w-full h-auto max-w-xl rounded-lg shadow-lg mb-4"
+              width={400}
+              height={400}
+            />
+          ) : (
+            <Text variant="body">Pas d&apos;image disponible...</Text>
+          )}
           <Text variant="title-h1">{name}</Text>
 
           <div className="grid grid-cols-2 gap-4 mb-6">
