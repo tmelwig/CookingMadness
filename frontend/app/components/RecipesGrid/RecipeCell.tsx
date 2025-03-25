@@ -35,6 +35,7 @@ const RecipeCell: React.FC<RecipeCellProps> = ({ recipe, onClick }) => {
           className="w-full h-48 object-cover mb-2 md:mb-5 rounded-lg shadow-md aspect-square"
           width={200}
           height={200}
+          sizes="(max-width: 200px) 100vw, 200px"
         />
       ) : (
         <Text variant="body">Pas d&apos;image disponible...</Text>

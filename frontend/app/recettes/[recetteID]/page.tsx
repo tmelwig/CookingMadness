@@ -42,6 +42,7 @@ export default function RecipePage({ params }: Props): JSX.Element {
               className="w-full h-auto max-w-xl rounded-lg shadow-lg mb-4"
               width={400}
               height={400}
+              sizes="(max-width: 400px) 100vw, 400px"
             />
           ) : (
             <Text variant="body">Pas d&apos;image disponible...</Text>
