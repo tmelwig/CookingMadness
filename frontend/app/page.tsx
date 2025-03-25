@@ -1,7 +1,6 @@
 "use client";
 import React, { JSX } from "react";
 import RecipesGrid from "@/app/components/RecipesGrid/RecipesGrid";
-import NavBar from "@/app/components/NavBar";
 import Text from "@/app/components/Text";
 import Image from "next/image";
 
@@ -24,7 +23,6 @@ export default function Home(): JSX.Element {
         <Text variant="title-h1">Home</Text>
         <Text variant="description">Voici les recettes disponibles !</Text>
         <RecipesGrid />
-      </div>
     </div>
   );
 }

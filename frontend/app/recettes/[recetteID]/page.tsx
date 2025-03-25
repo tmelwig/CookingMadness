@@ -2,7 +2,6 @@
 import React, { JSX, use } from "react";
 import Text from "@/app/components/Text";
 import { notFound, useRouter } from "next/navigation";
-import NavBar from "@/app/components/NavBar";
 import { useRecipe } from "@/app/contexts/RecipeContext";
 import Recipe from "@/app/types/recipe";
 import Image from "next/image";
@@ -33,8 +32,6 @@ export default function RecipePage({ params }: Props): JSX.Element {
   } = selectedRecipe as Recipe;
 
   return (
-    <div>
-      <NavBar />
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col items-center mb-8">
           {image_url ? (
@@ -95,6 +92,5 @@ export default function RecipePage({ params }: Props): JSX.Element {
           Retourner sur la page d&apos;accueil
         </button>
       </div>
-    </div>
   );
 }
