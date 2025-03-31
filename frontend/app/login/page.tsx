@@ -1,18 +1,23 @@
 "use client";
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { pOSTLogin } from '@/api/gourmetAPI';
+import useAuthStore from '@/app/stores/auth-store';
 
 const LoginPage: React.FC = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const router = useRouter();
+    const { setIsConnected } = useAuthStore();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
             const res = await pOSTLogin({username, password});
             if ("token" in res.data && res.data.token) {
-                localStorage.setItem('token', res.data.token);
-                window.location.href = '/';
+                localStorage.setItem("token", res.data.token);
+                setIsConnected(true);
+                router.push('/');
             }
             else {
                 console.log(res.data);
