@@ -1,33 +1,19 @@
 "use client";
-import { JSX, useEffect, useState } from "react";
+import { JSX, useEffect } from "react";
 import Link from "next/link";
-import { gETMe } from "@/api/gourmetAPI";
+import { checkIfUserIsLoggedIn } from "@/api/auth";
+import useAuthStore from "../stores/auth-store";
 
 export default function NavBar(): JSX.Element {
-  const [isConnected, setIsConnected] = useState(false); // Replace with actual authentication logic
+  const { isConnected, setIsConnected } = useAuthStore();
 
   useEffect(() => {
-    const checkIsConnected = async () => {
-      try {
-        if (!localStorage.getItem("token")) {
-          setIsConnected(false);
-          return;
-        }
-        const res = await gETMe({ headers: { 
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-          Accept: "application/json",
-          "Content-Type": "application/json",
-      } });
-        if (res.status === 200 && "username" in res.data) {
-          setIsConnected(true);
-        }
-      } catch (error) {
-        setIsConnected(false);
-        console.error(error);
-      }
-    }
-    checkIsConnected();
-  }, []);
+    const checkIfLoggedIn = async () => {
+      const loggedIn = await checkIfUserIsLoggedIn();
+      setIsConnected(loggedIn);
+    };
+    checkIfLoggedIn();
+  }, [setIsConnected]);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -43,13 +29,13 @@ export default function NavBar(): JSX.Element {
         <Link href="/recettes" className="text-lg">
           Recettes
         </Link>
-        <Link href="/favorites" className="text-lg">
+        {isConnected && <Link href="/favorites" className="text-lg">
           Favoris
-        </Link>
+        </Link>}
         {isConnected ? (
-          <button onClick={handleLogout} className="text-lg">
+          <Link  href="/" onClick={handleLogout} className="text-lg">
             Déconnexion
-          </button>
+          </Link>
         ) : (
           <Link href="/login" className="text-lg">
             Connexion
