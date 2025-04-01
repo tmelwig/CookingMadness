@@ -7,7 +7,6 @@ import Image from "next/image";
 export default function Home(): JSX.Element {
   return (
     <div className="relative w-full bg-orange-100">
-      <NavBar />
       <div className="w-[75%] mx-auto bg-orange-300">
         <Image
           src="/assets/images/cuisine_bis.webp"
@@ -24,5 +23,6 @@ export default function Home(): JSX.Element {
         <Text variant="description">Voici les recettes disponibles !</Text>
         <RecipesGrid />
     </div>
+  </div>
   );
 }

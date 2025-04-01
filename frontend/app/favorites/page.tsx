@@ -3,26 +3,70 @@ import React, { JSX, useEffect } from "react";
 import Text from "@/app/components/Text";
 import useAuthStore from "../stores/auth-store";
 import { checkIfUserIsLoggedIn } from "@/api/auth";
+import { gETFavorites, Recipe } from "@/api/gourmetAPI";
+import RecipeCell from "../components/RecipesGrid/RecipeCell";
 
 export default function FavoritesPage(): JSX.Element {
-  const { isConnected, setIsConnected } = useAuthStore();
+  const { authState, setAuthState } = useAuthStore();
 
   useEffect(() => {
     const checkIfLoggedIn = async () => {
-      const loggedIn = await checkIfUserIsLoggedIn();
-      setIsConnected(loggedIn);
+      await checkIfUserIsLoggedIn(setAuthState);
     };
     checkIfLoggedIn();
-  }, [setIsConnected]);
+  }, [setAuthState]);
 
   return (
     <div className="container mx-auto">
-      <Text variant="title-h1">Favoris</Text>
-      {isConnected ? (
-        <Text variant="body">Vous êtes connecté</Text>
+      {authState.isConnected ? (
+        <FavoritesList />
       ) : (
         <Text variant="body">Connectez vous pour accéder aux favoris</Text>
       )}
+    </div>
+  );
+}
+
+function FavoritesList(): JSX.Element {
+  const [favorites, setFavorites] = React.useState<Recipe[]>([]);
+  const token = localStorage.getItem("token");
+  useEffect(() => {
+    const fetchFavorites = async () => {
+      try {
+        const fetchedFavorites = await gETFavorites({
+          headers: {
+            Authorization: `Bearer ${token}`,
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        });
+        console.log("Fetched favorites:", fetchedFavorites);
+        if (fetchedFavorites.status !== 200) {
+          console.error("Failed to fetch favorites:", fetchedFavorites);
+          return;
+        }
+        setFavorites(
+          fetchedFavorites.data
+            .map((recipe) => recipe.recipe)
+            .filter((recipe) => recipe !== undefined)
+        );
+      } catch (error) {
+        console.error("Failed to fetch favorites:", error);
+      }
+    };
+    fetchFavorites();
+  }, [setFavorites, token]);
+
+  return (
+    <div>
+      <Text variant="title-h1">Favoris</Text>
+      <ul>
+        {favorites.map((recipe) => (
+          <li key={recipe.id}>
+            <RecipeCell recipe={recipe} onClick={() => {}} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

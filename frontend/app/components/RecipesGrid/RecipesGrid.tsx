@@ -2,7 +2,7 @@
 import React from "react";
 import { useListRecipes } from "@/app/hooks/RecipesHooks";
 import { useRecipe } from "@/app/contexts/RecipeContext";
-import Recipe from "@/app/types/recipe";
+import { Recipe } from "@/api/gourmetAPI";
 import RecipeCell from "./RecipeCell";
 
 const RecipesGrid: React.FC = () => {
