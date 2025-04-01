@@ -5,19 +5,18 @@ import { checkIfUserIsLoggedIn } from "@/api/auth";
 import useAuthStore from "../stores/auth-store";
 
 export default function NavBar(): JSX.Element {
-  const { isConnected, setIsConnected } = useAuthStore();
+  const { authState, setAuthState } = useAuthStore();
 
   useEffect(() => {
     const checkIfLoggedIn = async () => {
-      const loggedIn = await checkIfUserIsLoggedIn();
-      setIsConnected(loggedIn);
+      await checkIfUserIsLoggedIn(setAuthState);
     };
     checkIfLoggedIn();
-  }, [setIsConnected]);
+  }, [setAuthState]);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    setIsConnected(false);
+    setAuthState({ isConnected: false, username: null });
   };
 
   return (
@@ -29,11 +28,13 @@ export default function NavBar(): JSX.Element {
         <Link href="/recettes" className="text-lg">
           Recettes
         </Link>
-        {isConnected && <Link href="/favorites" className="text-lg">
-          Favoris
-        </Link>}
-        {isConnected ? (
-          <Link  href="/" onClick={handleLogout} className="text-lg">
+        {authState.isConnected && (
+          <Link href="/favorites" className="text-lg">
+            Favoris
+          </Link>
+        )}
+        {authState.isConnected ? (
+          <Link href="/" onClick={handleLogout} className="text-lg">
             Déconnexion
           </Link>
         ) : (

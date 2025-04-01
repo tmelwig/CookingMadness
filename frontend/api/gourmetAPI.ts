@@ -108,7 +108,7 @@ func getAllPets(ctx fuego.ContextNoBody) (*MyResponse, error) {
 
  * OpenAPI spec version: 0.0.1
  */
-import { httpClient } from './orvalCustomClient';
+import { httpClient } from "./orvalCustomClient";
 /**
  * CreateDosingParams schema
  */
@@ -197,7 +197,7 @@ export interface GetFavoritesByUserRow {
   recipe?: GetFavoritesByUserRowRecipe;
 }
 
-export type HTTPErrorErrorsItemMore = {[key: string]: unknown};
+export type HTTPErrorErrorsItemMore = { [key: string]: unknown };
 
 export type HTTPErrorErrorsItem = {
   more?: HTTPErrorErrorsItemMore;
@@ -348,86 +348,86 @@ export interface UsersRecipesFavorite {
 export interface UnknownInterface {}
 
 export type GETAdminParams = {
-/**
- * Page number
- */
-page?: number;
-/**
- * Number of items per page
- */
-perPage?: number;
+  /**
+   * Page number
+   */
+  page?: number;
+  /**
+   * Number of items per page
+   */
+  perPage?: number;
 };
 
 export type GETAdminIngredientsParams = {
-/**
- * Page number
- */
-page?: number;
-/**
- * Number of items per page
- */
-perPage?: number;
-/**
- * Name to perform LIKE search on
- */
-name?: string;
+  /**
+   * Page number
+   */
+  page?: number;
+  /**
+   * Number of items per page
+   */
+  perPage?: number;
+  /**
+   * Name to perform LIKE search on
+   */
+  name?: string;
 };
 
 export type GETAdminRecipesParams = {
-/**
- * Page number
- */
-page?: number;
-/**
- * Number of items per page
- */
-perPage?: number;
-/**
- * Name to perform LIKE search on
- */
-name?: string;
+  /**
+   * Page number
+   */
+  page?: number;
+  /**
+   * Number of items per page
+   */
+  perPage?: number;
+  /**
+   * Name to perform LIKE search on
+   */
+  name?: string;
 };
 
 export type GETIngredientsPreselectUnitParams = {
-/**
- * ID
- */
-id?: string;
+  /**
+   * ID
+   */
+  id?: string;
 };
 
 export type POSTLoginParams = {
-/**
- * Redirect URL
- */
-redirect?: string;
+  /**
+   * Redirect URL
+   */
+  redirect?: string;
 };
 
 export type GETRecipesListParams = {
-/**
- * Search query
- */
-search?: string;
+  /**
+   * Search query
+   */
+  search?: string;
 };
 
 export type GETSearchParams = {
-/**
- * Search query
- */
-q: string;
+  /**
+   * Search query
+   */
+  q: string;
 };
 
 export type DELETEUsersUsernameFavoritesParams = {
-/**
- * Recipe ID
- */
-recipeID: string;
+  /**
+   * Recipe ID
+   */
+  recipeID: string;
 };
 
 export type POSTUsersUsernameFavoritesParams = {
-/**
- * Recipe ID
- */
-recipeID: string;
+  /**
+   * Recipe ID
+   */
+  recipeID: string;
 };
 
 /**
@@ -448,48 +448,48 @@ recipeID: string;
  * @summary page admin
  */
 export type gETAdminResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type gETAdminResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETAdminResponseComposite = gETAdminResponse200 | gETAdminResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type gETAdminResponseComposite =
+  | gETAdminResponse200
+  | gETAdminResponse400;
+
 export type gETAdminResponse = gETAdminResponseComposite & {
   headers: Headers;
-}
+};
 
-export const getGETAdminUrl = (params?: GETAdminParams,) => {
+export const getGETAdminUrl = (params?: GETAdminParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
-    
     if (value !== undefined) {
-      normalizedParams.append(key, value === null ? 'null' : value.toString())
+      normalizedParams.append(key, value === null ? "null" : value.toString());
     }
   });
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://gourmet.cours.quimerch.com/admin?${stringifiedParams}` : `https://gourmet.cours.quimerch.com/admin`
-}
+  return stringifiedParams.length > 0
+    ? `https://gourmet.cours.quimerch.com/admin?${stringifiedParams}`
+    : `https://gourmet.cours.quimerch.com/admin`;
+};
 
-export const gETAdmin = async (params?: GETAdminParams, options?: RequestInit): Promise<gETAdminResponse> => {
-  
-  return httpClient<gETAdminResponse>(getGETAdminUrl(params),
-  {      
+export const gETAdmin = async (
+  params?: GETAdminParams,
+  options?: RequestInit
+): Promise<gETAdminResponse> => {
+  return httpClient<gETAdminResponse>(getGETAdminUrl(params), {
     ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+    method: "GET",
+  });
+};
 
 /**
  * #### Controller: 
@@ -509,42 +509,39 @@ export const gETAdmin = async (params?: GETAdminParams, options?: RequestInit): 
  * @summary admin add dosing
  */
 export type pOSTAdminDosingsNewResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type pOSTAdminDosingsNewResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type pOSTAdminDosingsNewResponseComposite = pOSTAdminDosingsNewResponse200 | pOSTAdminDosingsNewResponse400;
-    
-export type pOSTAdminDosingsNewResponse = pOSTAdminDosingsNewResponseComposite & {
-  headers: Headers;
-}
+  data: HTTPError;
+  status: 400;
+};
+
+export type pOSTAdminDosingsNewResponseComposite =
+  | pOSTAdminDosingsNewResponse200
+  | pOSTAdminDosingsNewResponse400;
+
+export type pOSTAdminDosingsNewResponse =
+  pOSTAdminDosingsNewResponseComposite & {
+    headers: Headers;
+  };
 
 export const getPOSTAdminDosingsNewUrl = () => {
+  return `https://gourmet.cours.quimerch.com/admin/dosings/new`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/admin/dosings/new`
-}
-
-export const pOSTAdminDosingsNew = async (createDosingParams: CreateDosingParams, options?: RequestInit): Promise<pOSTAdminDosingsNewResponse> => {
-  
-  return httpClient<pOSTAdminDosingsNewResponse>(getPOSTAdminDosingsNewUrl(),
-  {      
+export const pOSTAdminDosingsNew = async (
+  createDosingParams: CreateDosingParams,
+  options?: RequestInit
+): Promise<pOSTAdminDosingsNewResponse> => {
+  return httpClient<pOSTAdminDosingsNewResponse>(getPOSTAdminDosingsNewUrl(), {
     ...options,
-    method: 'POST',
-    headers: { 'Content-Type': '*/*', ...options?.headers },
-    body: JSON.stringify(
-      createDosingParams,)
-  }
-);}
-
-
+    method: "POST",
+    headers: { "Content-Type": "*/*", ...options?.headers },
+    body: JSON.stringify(createDosingParams),
+  });
+};
 
 /**
  * #### Controller: 
@@ -564,48 +561,54 @@ export const pOSTAdminDosingsNew = async (createDosingParams: CreateDosingParams
  * @summary admin ingredients
  */
 export type gETAdminIngredientsResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type gETAdminIngredientsResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETAdminIngredientsResponseComposite = gETAdminIngredientsResponse200 | gETAdminIngredientsResponse400;
-    
-export type gETAdminIngredientsResponse = gETAdminIngredientsResponseComposite & {
-  headers: Headers;
-}
+  data: HTTPError;
+  status: 400;
+};
 
-export const getGETAdminIngredientsUrl = (params?: GETAdminIngredientsParams,) => {
+export type gETAdminIngredientsResponseComposite =
+  | gETAdminIngredientsResponse200
+  | gETAdminIngredientsResponse400;
+
+export type gETAdminIngredientsResponse =
+  gETAdminIngredientsResponseComposite & {
+    headers: Headers;
+  };
+
+export const getGETAdminIngredientsUrl = (
+  params?: GETAdminIngredientsParams
+) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
-    
     if (value !== undefined) {
-      normalizedParams.append(key, value === null ? 'null' : value.toString())
+      normalizedParams.append(key, value === null ? "null" : value.toString());
     }
   });
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://gourmet.cours.quimerch.com/admin/ingredients?${stringifiedParams}` : `https://gourmet.cours.quimerch.com/admin/ingredients`
-}
+  return stringifiedParams.length > 0
+    ? `https://gourmet.cours.quimerch.com/admin/ingredients?${stringifiedParams}`
+    : `https://gourmet.cours.quimerch.com/admin/ingredients`;
+};
 
-export const gETAdminIngredients = async (params?: GETAdminIngredientsParams, options?: RequestInit): Promise<gETAdminIngredientsResponse> => {
-  
-  return httpClient<gETAdminIngredientsResponse>(getGETAdminIngredientsUrl(params),
-  {      
-    ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+export const gETAdminIngredients = async (
+  params?: GETAdminIngredientsParams,
+  options?: RequestInit
+): Promise<gETAdminIngredientsResponse> => {
+  return httpClient<gETAdminIngredientsResponse>(
+    getGETAdminIngredientsUrl(params),
+    {
+      ...options,
+      method: "GET",
+    }
+  );
+};
 
 /**
  * #### Controller: 
@@ -625,42 +628,42 @@ export const gETAdminIngredients = async (params?: GETAdminIngredientsParams, op
  * @summary admin ingredient creation page
  */
 export type gETAdminIngredientsCreateResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type gETAdminIngredientsCreateResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETAdminIngredientsCreateResponseComposite = gETAdminIngredientsCreateResponse200 | gETAdminIngredientsCreateResponse400;
-    
-export type gETAdminIngredientsCreateResponse = gETAdminIngredientsCreateResponseComposite & {
-  headers: Headers;
-}
+  data: HTTPError;
+  status: 400;
+};
+
+export type gETAdminIngredientsCreateResponseComposite =
+  | gETAdminIngredientsCreateResponse200
+  | gETAdminIngredientsCreateResponse400;
+
+export type gETAdminIngredientsCreateResponse =
+  gETAdminIngredientsCreateResponseComposite & {
+    headers: Headers;
+  };
 
 export const getGETAdminIngredientsCreateUrl = () => {
+  return `https://gourmet.cours.quimerch.com/admin/ingredients/create`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/admin/ingredients/create`
-}
-
-export const gETAdminIngredientsCreate = async (createIngredientParams: CreateIngredientParams, options?: RequestInit): Promise<gETAdminIngredientsCreateResponse> => {
-  
-  return httpClient<gETAdminIngredientsCreateResponse>(getGETAdminIngredientsCreateUrl(),
-  {      
-    ...options,
-    method: 'GET',
-    headers: { 'Content-Type': '*/*', ...options?.headers },
-    body: JSON.stringify(
-      createIngredientParams,)
-  }
-);}
-
-
+export const gETAdminIngredientsCreate = async (
+  createIngredientParams: CreateIngredientParams,
+  options?: RequestInit
+): Promise<gETAdminIngredientsCreateResponse> => {
+  return httpClient<gETAdminIngredientsCreateResponse>(
+    getGETAdminIngredientsCreateUrl(),
+    {
+      ...options,
+      method: "GET",
+      headers: { "Content-Type": "*/*", ...options?.headers },
+      body: JSON.stringify(createIngredientParams),
+    }
+  );
+};
 
 /**
  * #### Controller: 
@@ -680,42 +683,42 @@ Create a new ingredient
  * @summary admin create ingredient
  */
 export type pOSTAdminIngredientsNewResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type pOSTAdminIngredientsNewResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type pOSTAdminIngredientsNewResponseComposite = pOSTAdminIngredientsNewResponse200 | pOSTAdminIngredientsNewResponse400;
-    
-export type pOSTAdminIngredientsNewResponse = pOSTAdminIngredientsNewResponseComposite & {
-  headers: Headers;
-}
+  data: HTTPError;
+  status: 400;
+};
+
+export type pOSTAdminIngredientsNewResponseComposite =
+  | pOSTAdminIngredientsNewResponse200
+  | pOSTAdminIngredientsNewResponse400;
+
+export type pOSTAdminIngredientsNewResponse =
+  pOSTAdminIngredientsNewResponseComposite & {
+    headers: Headers;
+  };
 
 export const getPOSTAdminIngredientsNewUrl = () => {
+  return `https://gourmet.cours.quimerch.com/admin/ingredients/new`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/admin/ingredients/new`
-}
-
-export const pOSTAdminIngredientsNew = async (createIngredientParams: CreateIngredientParams, options?: RequestInit): Promise<pOSTAdminIngredientsNewResponse> => {
-  
-  return httpClient<pOSTAdminIngredientsNewResponse>(getPOSTAdminIngredientsNewUrl(),
-  {      
-    ...options,
-    method: 'POST',
-    headers: { 'Content-Type': '*/*', ...options?.headers },
-    body: JSON.stringify(
-      createIngredientParams,)
-  }
-);}
-
-
+export const pOSTAdminIngredientsNew = async (
+  createIngredientParams: CreateIngredientParams,
+  options?: RequestInit
+): Promise<pOSTAdminIngredientsNewResponse> => {
+  return httpClient<pOSTAdminIngredientsNewResponse>(
+    getPOSTAdminIngredientsNewUrl(),
+    {
+      ...options,
+      method: "POST",
+      headers: { "Content-Type": "*/*", ...options?.headers },
+      body: JSON.stringify(createIngredientParams),
+    }
+  );
+};
 
 /**
  * #### Controller: 
@@ -735,48 +738,48 @@ export const pOSTAdminIngredientsNew = async (createIngredientParams: CreateIngr
  * @summary admin recipes
  */
 export type gETAdminRecipesResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type gETAdminRecipesResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETAdminRecipesResponseComposite = gETAdminRecipesResponse200 | gETAdminRecipesResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type gETAdminRecipesResponseComposite =
+  | gETAdminRecipesResponse200
+  | gETAdminRecipesResponse400;
+
 export type gETAdminRecipesResponse = gETAdminRecipesResponseComposite & {
   headers: Headers;
-}
+};
 
-export const getGETAdminRecipesUrl = (params?: GETAdminRecipesParams,) => {
+export const getGETAdminRecipesUrl = (params?: GETAdminRecipesParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
-    
     if (value !== undefined) {
-      normalizedParams.append(key, value === null ? 'null' : value.toString())
+      normalizedParams.append(key, value === null ? "null" : value.toString());
     }
   });
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://gourmet.cours.quimerch.com/admin/recipes?${stringifiedParams}` : `https://gourmet.cours.quimerch.com/admin/recipes`
-}
+  return stringifiedParams.length > 0
+    ? `https://gourmet.cours.quimerch.com/admin/recipes?${stringifiedParams}`
+    : `https://gourmet.cours.quimerch.com/admin/recipes`;
+};
 
-export const gETAdminRecipes = async (params?: GETAdminRecipesParams, options?: RequestInit): Promise<gETAdminRecipesResponse> => {
-  
-  return httpClient<gETAdminRecipesResponse>(getGETAdminRecipesUrl(params),
-  {      
+export const gETAdminRecipes = async (
+  params?: GETAdminRecipesParams,
+  options?: RequestInit
+): Promise<gETAdminRecipesResponse> => {
+  return httpClient<gETAdminRecipesResponse>(getGETAdminRecipesUrl(params), {
     ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+    method: "GET",
+  });
+};
 
 /**
  * #### Controller: 
@@ -796,42 +799,38 @@ export const gETAdminRecipes = async (params?: GETAdminRecipesParams, options?: 
  * @summary add recipe
  */
 export type pOSTAdminRecipesResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type pOSTAdminRecipesResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type pOSTAdminRecipesResponseComposite = pOSTAdminRecipesResponse200 | pOSTAdminRecipesResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type pOSTAdminRecipesResponseComposite =
+  | pOSTAdminRecipesResponse200
+  | pOSTAdminRecipesResponse400;
+
 export type pOSTAdminRecipesResponse = pOSTAdminRecipesResponseComposite & {
   headers: Headers;
-}
+};
 
 export const getPOSTAdminRecipesUrl = () => {
+  return `https://gourmet.cours.quimerch.com/admin/recipes`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/admin/recipes`
-}
-
-export const pOSTAdminRecipes = async (createRecipeParams: CreateRecipeParams, options?: RequestInit): Promise<pOSTAdminRecipesResponse> => {
-  
-  return httpClient<pOSTAdminRecipesResponse>(getPOSTAdminRecipesUrl(),
-  {      
+export const pOSTAdminRecipes = async (
+  createRecipeParams: CreateRecipeParams,
+  options?: RequestInit
+): Promise<pOSTAdminRecipesResponse> => {
+  return httpClient<pOSTAdminRecipesResponse>(getPOSTAdminRecipesUrl(), {
     ...options,
-    method: 'POST',
-    headers: { 'Content-Type': '*/*', ...options?.headers },
-    body: JSON.stringify(
-      createRecipeParams,)
-  }
-);}
-
-
+    method: "POST",
+    headers: { "Content-Type": "*/*", ...options?.headers },
+    body: JSON.stringify(createRecipeParams),
+  });
+};
 
 /**
  * #### Controller: 
@@ -851,41 +850,39 @@ export const pOSTAdminRecipes = async (createRecipeParams: CreateRecipeParams, o
  * @summary admin create recipe page
  */
 export type gETAdminRecipesCreateResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type gETAdminRecipesCreateResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETAdminRecipesCreateResponseComposite = gETAdminRecipesCreateResponse200 | gETAdminRecipesCreateResponse400;
-    
-export type gETAdminRecipesCreateResponse = gETAdminRecipesCreateResponseComposite & {
-  headers: Headers;
-}
+  data: HTTPError;
+  status: 400;
+};
+
+export type gETAdminRecipesCreateResponseComposite =
+  | gETAdminRecipesCreateResponse200
+  | gETAdminRecipesCreateResponse400;
+
+export type gETAdminRecipesCreateResponse =
+  gETAdminRecipesCreateResponseComposite & {
+    headers: Headers;
+  };
 
 export const getGETAdminRecipesCreateUrl = () => {
+  return `https://gourmet.cours.quimerch.com/admin/recipes/create`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/admin/recipes/create`
-}
-
-export const gETAdminRecipesCreate = async ( options?: RequestInit): Promise<gETAdminRecipesCreateResponse> => {
-  
-  return httpClient<gETAdminRecipesCreateResponse>(getGETAdminRecipesCreateUrl(),
-  {      
-    ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+export const gETAdminRecipesCreate = async (
+  options?: RequestInit
+): Promise<gETAdminRecipesCreateResponse> => {
+  return httpClient<gETAdminRecipesCreateResponse>(
+    getGETAdminRecipesCreateUrl(),
+    {
+      ...options,
+      method: "GET",
+    }
+  );
+};
 
 /**
  * #### Controller: 
@@ -905,42 +902,39 @@ export const gETAdminRecipesCreate = async ( options?: RequestInit): Promise<gET
  * @summary edit recipe
  */
 export type pUTAdminRecipesEditResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type pUTAdminRecipesEditResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type pUTAdminRecipesEditResponseComposite = pUTAdminRecipesEditResponse200 | pUTAdminRecipesEditResponse400;
-    
-export type pUTAdminRecipesEditResponse = pUTAdminRecipesEditResponseComposite & {
-  headers: Headers;
-}
+  data: HTTPError;
+  status: 400;
+};
+
+export type pUTAdminRecipesEditResponseComposite =
+  | pUTAdminRecipesEditResponse200
+  | pUTAdminRecipesEditResponse400;
+
+export type pUTAdminRecipesEditResponse =
+  pUTAdminRecipesEditResponseComposite & {
+    headers: Headers;
+  };
 
 export const getPUTAdminRecipesEditUrl = () => {
+  return `https://gourmet.cours.quimerch.com/admin/recipes/edit`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/admin/recipes/edit`
-}
-
-export const pUTAdminRecipesEdit = async (updateRecipeParams: UpdateRecipeParams, options?: RequestInit): Promise<pUTAdminRecipesEditResponse> => {
-  
-  return httpClient<pUTAdminRecipesEditResponse>(getPUTAdminRecipesEditUrl(),
-  {      
+export const pUTAdminRecipesEdit = async (
+  updateRecipeParams: UpdateRecipeParams,
+  options?: RequestInit
+): Promise<pUTAdminRecipesEditResponse> => {
+  return httpClient<pUTAdminRecipesEditResponse>(getPUTAdminRecipesEditUrl(), {
     ...options,
-    method: 'PUT',
-    headers: { 'Content-Type': '*/*', ...options?.headers },
-    body: JSON.stringify(
-      updateRecipeParams,)
-  }
-);}
-
-
+    method: "PUT",
+    headers: { "Content-Type": "*/*", ...options?.headers },
+    body: JSON.stringify(updateRecipeParams),
+  });
+};
 
 /**
  * #### Controller: 
@@ -960,42 +954,39 @@ export const pUTAdminRecipesEdit = async (updateRecipeParams: UpdateRecipeParams
  * @summary admin add recipes
  */
 export type pOSTAdminRecipesNewResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type pOSTAdminRecipesNewResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type pOSTAdminRecipesNewResponseComposite = pOSTAdminRecipesNewResponse200 | pOSTAdminRecipesNewResponse400;
-    
-export type pOSTAdminRecipesNewResponse = pOSTAdminRecipesNewResponseComposite & {
-  headers: Headers;
-}
+  data: HTTPError;
+  status: 400;
+};
+
+export type pOSTAdminRecipesNewResponseComposite =
+  | pOSTAdminRecipesNewResponse200
+  | pOSTAdminRecipesNewResponse400;
+
+export type pOSTAdminRecipesNewResponse =
+  pOSTAdminRecipesNewResponseComposite & {
+    headers: Headers;
+  };
 
 export const getPOSTAdminRecipesNewUrl = () => {
+  return `https://gourmet.cours.quimerch.com/admin/recipes/new`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/admin/recipes/new`
-}
-
-export const pOSTAdminRecipesNew = async (createRecipeParams: CreateRecipeParams, options?: RequestInit): Promise<pOSTAdminRecipesNewResponse> => {
-  
-  return httpClient<pOSTAdminRecipesNewResponse>(getPOSTAdminRecipesNewUrl(),
-  {      
+export const pOSTAdminRecipesNew = async (
+  createRecipeParams: CreateRecipeParams,
+  options?: RequestInit
+): Promise<pOSTAdminRecipesNewResponse> => {
+  return httpClient<pOSTAdminRecipesNewResponse>(getPOSTAdminRecipesNewUrl(), {
     ...options,
-    method: 'POST',
-    headers: { 'Content-Type': '*/*', ...options?.headers },
-    body: JSON.stringify(
-      createRecipeParams,)
-  }
-);}
-
-
+    method: "POST",
+    headers: { "Content-Type": "*/*", ...options?.headers },
+    body: JSON.stringify(createRecipeParams),
+  });
+};
 
 /**
  * #### Controller: 
@@ -1015,41 +1006,40 @@ export const pOSTAdminRecipesNew = async (createRecipeParams: CreateRecipeParams
  * @summary admin delete recipe
  */
 export type dELETEAdminRecipesIdResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type dELETEAdminRecipesIdResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type dELETEAdminRecipesIdResponseComposite = dELETEAdminRecipesIdResponse200 | dELETEAdminRecipesIdResponse400;
-    
-export type dELETEAdminRecipesIdResponse = dELETEAdminRecipesIdResponseComposite & {
-  headers: Headers;
-}
+  data: HTTPError;
+  status: 400;
+};
 
-export const getDELETEAdminRecipesIdUrl = (id: string,) => {
+export type dELETEAdminRecipesIdResponseComposite =
+  | dELETEAdminRecipesIdResponse200
+  | dELETEAdminRecipesIdResponse400;
 
+export type dELETEAdminRecipesIdResponse =
+  dELETEAdminRecipesIdResponseComposite & {
+    headers: Headers;
+  };
 
-  
+export const getDELETEAdminRecipesIdUrl = (id: string) => {
+  return `https://gourmet.cours.quimerch.com/admin/recipes/${id}`;
+};
 
-  return `https://gourmet.cours.quimerch.com/admin/recipes/${id}`
-}
-
-export const dELETEAdminRecipesId = async (id: string, options?: RequestInit): Promise<dELETEAdminRecipesIdResponse> => {
-  
-  return httpClient<dELETEAdminRecipesIdResponse>(getDELETEAdminRecipesIdUrl(id),
-  {      
-    ...options,
-    method: 'DELETE'
-    
-    
-  }
-);}
-
-
+export const dELETEAdminRecipesId = async (
+  id: string,
+  options?: RequestInit
+): Promise<dELETEAdminRecipesIdResponse> => {
+  return httpClient<dELETEAdminRecipesIdResponse>(
+    getDELETEAdminRecipesIdUrl(id),
+    {
+      ...options,
+      method: "DELETE",
+    }
+  );
+};
 
 /**
  * #### Controller: 
@@ -1069,43 +1059,39 @@ export const dELETEAdminRecipesId = async (id: string, options?: RequestInit): P
  * @summary admin one recipe
  */
 export type gETAdminRecipesIdResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type gETAdminRecipesIdResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETAdminRecipesIdResponseComposite = gETAdminRecipesIdResponse200 | gETAdminRecipesIdResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type gETAdminRecipesIdResponseComposite =
+  | gETAdminRecipesIdResponse200
+  | gETAdminRecipesIdResponse400;
+
 export type gETAdminRecipesIdResponse = gETAdminRecipesIdResponseComposite & {
   headers: Headers;
-}
+};
 
-export const getGETAdminRecipesIdUrl = (id: string,) => {
+export const getGETAdminRecipesIdUrl = (id: string) => {
+  return `https://gourmet.cours.quimerch.com/admin/recipes/${id}`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/admin/recipes/${id}`
-}
-
-export const gETAdminRecipesId = async (id: string,
-    updateRecipeParams: UpdateRecipeParams, options?: RequestInit): Promise<gETAdminRecipesIdResponse> => {
-  
-  return httpClient<gETAdminRecipesIdResponse>(getGETAdminRecipesIdUrl(id),
-  {      
+export const gETAdminRecipesId = async (
+  id: string,
+  updateRecipeParams: UpdateRecipeParams,
+  options?: RequestInit
+): Promise<gETAdminRecipesIdResponse> => {
+  return httpClient<gETAdminRecipesIdResponse>(getGETAdminRecipesIdUrl(id), {
     ...options,
-    method: 'GET',
-    headers: { 'Content-Type': '*/*', ...options?.headers },
-    body: JSON.stringify(
-      updateRecipeParams,)
-  }
-);}
-
-
+    method: "GET",
+    headers: { "Content-Type": "*/*", ...options?.headers },
+    body: JSON.stringify(updateRecipeParams),
+  });
+};
 
 /**
  * #### Controller: 
@@ -1125,43 +1111,39 @@ export const gETAdminRecipesId = async (id: string,
  * @summary admin one recipe
  */
 export type pUTAdminRecipesIdResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type pUTAdminRecipesIdResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type pUTAdminRecipesIdResponseComposite = pUTAdminRecipesIdResponse200 | pUTAdminRecipesIdResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type pUTAdminRecipesIdResponseComposite =
+  | pUTAdminRecipesIdResponse200
+  | pUTAdminRecipesIdResponse400;
+
 export type pUTAdminRecipesIdResponse = pUTAdminRecipesIdResponseComposite & {
   headers: Headers;
-}
+};
 
-export const getPUTAdminRecipesIdUrl = (id: string,) => {
+export const getPUTAdminRecipesIdUrl = (id: string) => {
+  return `https://gourmet.cours.quimerch.com/admin/recipes/${id}`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/admin/recipes/${id}`
-}
-
-export const pUTAdminRecipesId = async (id: string,
-    updateRecipeParams: UpdateRecipeParams, options?: RequestInit): Promise<pUTAdminRecipesIdResponse> => {
-  
-  return httpClient<pUTAdminRecipesIdResponse>(getPUTAdminRecipesIdUrl(id),
-  {      
+export const pUTAdminRecipesId = async (
+  id: string,
+  updateRecipeParams: UpdateRecipeParams,
+  options?: RequestInit
+): Promise<pUTAdminRecipesIdResponse> => {
+  return httpClient<pUTAdminRecipesIdResponse>(getPUTAdminRecipesIdUrl(id), {
     ...options,
-    method: 'PUT',
-    headers: { 'Content-Type': '*/*', ...options?.headers },
-    body: JSON.stringify(
-      updateRecipeParams,)
-  }
-);}
-
-
+    method: "PUT",
+    headers: { "Content-Type": "*/*", ...options?.headers },
+    body: JSON.stringify(updateRecipeParams),
+  });
+};
 
 /**
  * #### Controller: 
@@ -1181,41 +1163,35 @@ export const pUTAdminRecipesId = async (id: string,
  * @summary get users
  */
 export type gETAdminUsersResponse200 = {
-  data: User[]
-  status: 200
-}
+  data: User[];
+  status: 200;
+};
 
 export type gETAdminUsersResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETAdminUsersResponseComposite = gETAdminUsersResponse200 | gETAdminUsersResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type gETAdminUsersResponseComposite =
+  | gETAdminUsersResponse200
+  | gETAdminUsersResponse400;
+
 export type gETAdminUsersResponse = gETAdminUsersResponseComposite & {
   headers: Headers;
-}
+};
 
 export const getGETAdminUsersUrl = () => {
+  return `https://gourmet.cours.quimerch.com/admin/users`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/admin/users`
-}
-
-export const gETAdminUsers = async ( options?: RequestInit): Promise<gETAdminUsersResponse> => {
-  
-  return httpClient<gETAdminUsersResponse>(getGETAdminUsersUrl(),
-  {      
+export const gETAdminUsers = async (
+  options?: RequestInit
+): Promise<gETAdminUsersResponse> => {
+  return httpClient<gETAdminUsersResponse>(getGETAdminUsersUrl(), {
     ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+    method: "GET",
+  });
+};
 
 /**
  * #### Controller: 
@@ -1235,42 +1211,38 @@ export const gETAdminUsers = async ( options?: RequestInit): Promise<gETAdminUse
  * @summary create user
  */
 export type pOSTAdminUsersResponse200 = {
-  data: User
-  status: 200
-}
+  data: User;
+  status: 200;
+};
 
 export type pOSTAdminUsersResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type pOSTAdminUsersResponseComposite = pOSTAdminUsersResponse200 | pOSTAdminUsersResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type pOSTAdminUsersResponseComposite =
+  | pOSTAdminUsersResponse200
+  | pOSTAdminUsersResponse400;
+
 export type pOSTAdminUsersResponse = pOSTAdminUsersResponseComposite & {
   headers: Headers;
-}
+};
 
 export const getPOSTAdminUsersUrl = () => {
+  return `https://gourmet.cours.quimerch.com/admin/users`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/admin/users`
-}
-
-export const pOSTAdminUsers = async (createUserPayload: CreateUserPayload, options?: RequestInit): Promise<pOSTAdminUsersResponse> => {
-  
-  return httpClient<pOSTAdminUsersResponse>(getPOSTAdminUsersUrl(),
-  {      
+export const pOSTAdminUsers = async (
+  createUserPayload: CreateUserPayload,
+  options?: RequestInit
+): Promise<pOSTAdminUsersResponse> => {
+  return httpClient<pOSTAdminUsersResponse>(getPOSTAdminUsersUrl(), {
     ...options,
-    method: 'POST',
-    headers: { 'Content-Type': '*/*', ...options?.headers },
-    body: JSON.stringify(
-      createUserPayload,)
-  }
-);}
-
-
+    method: "POST",
+    headers: { "Content-Type": "*/*", ...options?.headers },
+    body: JSON.stringify(createUserPayload),
+  });
+};
 
 /**
  * #### Controller: 
@@ -1289,41 +1261,35 @@ export const pOSTAdminUsers = async (createUserPayload: CreateUserPayload, optio
  * @summary connection
  */
 export type gETConnectionResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type gETConnectionResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETConnectionResponseComposite = gETConnectionResponse200 | gETConnectionResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type gETConnectionResponseComposite =
+  | gETConnectionResponse200
+  | gETConnectionResponse400;
+
 export type gETConnectionResponse = gETConnectionResponseComposite & {
   headers: Headers;
-}
+};
 
 export const getGETConnectionUrl = () => {
+  return `https://gourmet.cours.quimerch.com/connection`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/connection`
-}
-
-export const gETConnection = async ( options?: RequestInit): Promise<gETConnectionResponse> => {
-  
-  return httpClient<gETConnectionResponse>(getGETConnectionUrl(),
-  {      
+export const gETConnection = async (
+  options?: RequestInit
+): Promise<gETConnectionResponse> => {
+  return httpClient<gETConnectionResponse>(getGETConnectionUrl(), {
     ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+    method: "GET",
+  });
+};
 
 /**
  * #### Controller: 
@@ -1342,41 +1308,33 @@ export const gETConnection = async ( options?: RequestInit): Promise<gETConnecti
  * @summary fast recipes
  */
 export type gETFastResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type gETFastResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
+  data: HTTPError;
+  status: 400;
+};
+
 export type gETFastResponseComposite = gETFastResponse200 | gETFastResponse400;
-    
+
 export type gETFastResponse = gETFastResponseComposite & {
   headers: Headers;
-}
+};
 
 export const getGETFastUrl = () => {
+  return `https://gourmet.cours.quimerch.com/fast`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/fast`
-}
-
-export const gETFast = async ( options?: RequestInit): Promise<gETFastResponse> => {
-  
-  return httpClient<gETFastResponse>(getGETFastUrl(),
-  {      
+export const gETFast = async (
+  options?: RequestInit
+): Promise<gETFastResponse> => {
+  return httpClient<gETFastResponse>(getGETFastUrl(), {
     ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+    method: "GET",
+  });
+};
 
 /**
  * #### Controller: 
@@ -1395,41 +1353,35 @@ export const gETFast = async ( options?: RequestInit): Promise<gETFastResponse> 
  * @summary get my favorites
  */
 export type gETFavoritesResponse200 = {
-  data: GetFavoritesByUserRow[]
-  status: 200
-}
+  data: GetFavoritesByUserRow[];
+  status: 200;
+};
 
 export type gETFavoritesResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETFavoritesResponseComposite = gETFavoritesResponse200 | gETFavoritesResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type gETFavoritesResponseComposite =
+  | gETFavoritesResponse200
+  | gETFavoritesResponse400;
+
 export type gETFavoritesResponse = gETFavoritesResponseComposite & {
   headers: Headers;
-}
+};
 
 export const getGETFavoritesUrl = () => {
+  return `https://gourmet.cours.quimerch.com/favorites`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/favorites`
-}
-
-export const gETFavorites = async ( options?: RequestInit): Promise<gETFavoritesResponse> => {
-  
-  return httpClient<gETFavoritesResponse>(getGETFavoritesUrl(),
-  {      
+export const gETFavorites = async (
+  options?: RequestInit
+): Promise<gETFavoritesResponse> => {
+  return httpClient<gETFavoritesResponse>(getGETFavoritesUrl(), {
     ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+    method: "GET",
+  });
+};
 
 /**
  * #### Controller: 
@@ -1448,41 +1400,35 @@ export const gETFavorites = async ( options?: RequestInit): Promise<gETFavorites
  * @summary healthy recipes
  */
 export type gETHealthyResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type gETHealthyResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETHealthyResponseComposite = gETHealthyResponse200 | gETHealthyResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type gETHealthyResponseComposite =
+  | gETHealthyResponse200
+  | gETHealthyResponse400;
+
 export type gETHealthyResponse = gETHealthyResponseComposite & {
   headers: Headers;
-}
+};
 
 export const getGETHealthyUrl = () => {
+  return `https://gourmet.cours.quimerch.com/healthy`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/healthy`
-}
-
-export const gETHealthy = async ( options?: RequestInit): Promise<gETHealthyResponse> => {
-  
-  return httpClient<gETHealthyResponse>(getGETHealthyUrl(),
-  {      
+export const gETHealthy = async (
+  options?: RequestInit
+): Promise<gETHealthyResponse> => {
+  return httpClient<gETHealthyResponse>(getGETHealthyUrl(), {
     ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+    method: "GET",
+  });
+};
 
 /**
  * #### Controller: 
@@ -1501,41 +1447,35 @@ export const gETHealthy = async ( options?: RequestInit): Promise<gETHealthyResp
  * @summary show ingredients
  */
 export type gETIngredientsResponse200 = {
-  data: Ingredient[]
-  status: 200
-}
+  data: Ingredient[];
+  status: 200;
+};
 
 export type gETIngredientsResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETIngredientsResponseComposite = gETIngredientsResponse200 | gETIngredientsResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type gETIngredientsResponseComposite =
+  | gETIngredientsResponse200
+  | gETIngredientsResponse400;
+
 export type gETIngredientsResponse = gETIngredientsResponseComposite & {
   headers: Headers;
-}
+};
 
 export const getGETIngredientsUrl = () => {
+  return `https://gourmet.cours.quimerch.com/ingredients`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/ingredients`
-}
-
-export const gETIngredients = async ( options?: RequestInit): Promise<gETIngredientsResponse> => {
-  
-  return httpClient<gETIngredientsResponse>(getGETIngredientsUrl(),
-  {      
+export const gETIngredients = async (
+  options?: RequestInit
+): Promise<gETIngredientsResponse> => {
+  return httpClient<gETIngredientsResponse>(getGETIngredientsUrl(), {
     ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+    method: "GET",
+  });
+};
 
 /**
  * #### Controller: 
@@ -1554,48 +1494,54 @@ export const gETIngredients = async ( options?: RequestInit): Promise<gETIngredi
  * @summary unit preselected
  */
 export type gETIngredientsPreselectUnitResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type gETIngredientsPreselectUnitResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETIngredientsPreselectUnitResponseComposite = gETIngredientsPreselectUnitResponse200 | gETIngredientsPreselectUnitResponse400;
-    
-export type gETIngredientsPreselectUnitResponse = gETIngredientsPreselectUnitResponseComposite & {
-  headers: Headers;
-}
+  data: HTTPError;
+  status: 400;
+};
 
-export const getGETIngredientsPreselectUnitUrl = (params: GETIngredientsPreselectUnitParams,) => {
+export type gETIngredientsPreselectUnitResponseComposite =
+  | gETIngredientsPreselectUnitResponse200
+  | gETIngredientsPreselectUnitResponse400;
+
+export type gETIngredientsPreselectUnitResponse =
+  gETIngredientsPreselectUnitResponseComposite & {
+    headers: Headers;
+  };
+
+export const getGETIngredientsPreselectUnitUrl = (
+  params: GETIngredientsPreselectUnitParams
+) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
-    
     if (value !== undefined) {
-      normalizedParams.append(key, value === null ? 'null' : value.toString())
+      normalizedParams.append(key, value === null ? "null" : value.toString());
     }
   });
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://gourmet.cours.quimerch.com/ingredients/preselect-unit?${stringifiedParams}` : `https://gourmet.cours.quimerch.com/ingredients/preselect-unit`
-}
+  return stringifiedParams.length > 0
+    ? `https://gourmet.cours.quimerch.com/ingredients/preselect-unit?${stringifiedParams}`
+    : `https://gourmet.cours.quimerch.com/ingredients/preselect-unit`;
+};
 
-export const gETIngredientsPreselectUnit = async (params: GETIngredientsPreselectUnitParams, options?: RequestInit): Promise<gETIngredientsPreselectUnitResponse> => {
-  
-  return httpClient<gETIngredientsPreselectUnitResponse>(getGETIngredientsPreselectUnitUrl(params),
-  {      
-    ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+export const gETIngredientsPreselectUnit = async (
+  params: GETIngredientsPreselectUnitParams,
+  options?: RequestInit
+): Promise<gETIngredientsPreselectUnitResponse> => {
+  return httpClient<gETIngredientsPreselectUnitResponse>(
+    getGETIngredientsPreselectUnitUrl(params),
+    {
+      ...options,
+      method: "GET",
+    }
+  );
+};
 
 /**
  * #### Controller: 
@@ -1614,50 +1560,51 @@ export const gETIngredientsPreselectUnit = async (params: GETIngredientsPreselec
  * @summary login
  */
 export type pOSTLoginResponse200 = {
-  data: TokenResponse
-  status: 200
-}
+  data: TokenResponse;
+  status: 200;
+};
 
 export type pOSTLoginResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type pOSTLoginResponseComposite = pOSTLoginResponse200 | pOSTLoginResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type pOSTLoginResponseComposite =
+  | pOSTLoginResponse200
+  | pOSTLoginResponse400;
+
 export type pOSTLoginResponse = pOSTLoginResponseComposite & {
   headers: Headers;
-}
+};
 
-export const getPOSTLoginUrl = (params?: POSTLoginParams,) => {
+export const getPOSTLoginUrl = (params?: POSTLoginParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
-    
     if (value !== undefined) {
-      normalizedParams.append(key, value === null ? 'null' : value.toString())
+      normalizedParams.append(key, value === null ? "null" : value.toString());
     }
   });
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://gourmet.cours.quimerch.com/login?${stringifiedParams}` : `https://gourmet.cours.quimerch.com/login`
-}
+  return stringifiedParams.length > 0
+    ? `https://gourmet.cours.quimerch.com/login?${stringifiedParams}`
+    : `https://gourmet.cours.quimerch.com/login`;
+};
 
-export const pOSTLogin = async (loginPayload: LoginPayload,
-    params?: POSTLoginParams, options?: RequestInit): Promise<pOSTLoginResponse> => {
-  
-  return httpClient<pOSTLoginResponse>(getPOSTLoginUrl(params),
-  {      
+export const pOSTLogin = async (
+  loginPayload: LoginPayload,
+  params?: POSTLoginParams,
+  options?: RequestInit
+): Promise<pOSTLoginResponse> => {
+  return httpClient<pOSTLoginResponse>(getPOSTLoginUrl(params), {
     ...options,
-    method: 'POST',
-    headers: { 'Content-Type': '*/*', ...options?.headers },
-    body: JSON.stringify(
-      loginPayload,)
-  }
-);}
-
-
+    method: "POST",
+    headers: { "Content-Type": "*/*", ...options?.headers },
+    body: JSON.stringify(loginPayload),
+  });
+};
 
 /**
  * #### Controller: 
@@ -1676,41 +1623,35 @@ export const pOSTLogin = async (loginPayload: LoginPayload,
  * @summary logout
  */
 export type gETLogoutResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type gETLogoutResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETLogoutResponseComposite = gETLogoutResponse200 | gETLogoutResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type gETLogoutResponseComposite =
+  | gETLogoutResponse200
+  | gETLogoutResponse400;
+
 export type gETLogoutResponse = gETLogoutResponseComposite & {
   headers: Headers;
-}
+};
 
 export const getGETLogoutUrl = () => {
+  return `https://gourmet.cours.quimerch.com/logout`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/logout`
-}
-
-export const gETLogout = async ( options?: RequestInit): Promise<gETLogoutResponse> => {
-  
-  return httpClient<gETLogoutResponse>(getGETLogoutUrl(),
-  {      
+export const gETLogout = async (
+  options?: RequestInit
+): Promise<gETLogoutResponse> => {
+  return httpClient<gETLogoutResponse>(getGETLogoutUrl(), {
     ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+    method: "GET",
+  });
+};
 
 /**
  * #### Controller: 
@@ -1729,41 +1670,31 @@ export const gETLogout = async ( options?: RequestInit): Promise<gETLogoutRespon
  * @summary me
  */
 export type gETMeResponse200 = {
-  data: User
-  status: 200
-}
+  data: User;
+  status: 200;
+};
 
 export type gETMeResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
+  data: HTTPError;
+  status: 400;
+};
+
 export type gETMeResponseComposite = gETMeResponse200 | gETMeResponse400;
-    
+
 export type gETMeResponse = gETMeResponseComposite & {
   headers: Headers;
-}
+};
 
 export const getGETMeUrl = () => {
+  return `https://gourmet.cours.quimerch.com/me`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/me`
-}
-
-export const gETMe = async ( options?: RequestInit): Promise<gETMeResponse> => {
-  
-  return httpClient<gETMeResponse>(getGETMeUrl(),
-  {      
+export const gETMe = async (options?: RequestInit): Promise<gETMeResponse> => {
+  return httpClient<gETMeResponse>(getGETMeUrl(), {
     ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+    method: "GET",
+  });
+};
 
 /**
  * #### Controller: 
@@ -1782,41 +1713,35 @@ export const gETMe = async ( options?: RequestInit): Promise<gETMeResponse> => {
  * @summary planner
  */
 export type gETPlannerResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type gETPlannerResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETPlannerResponseComposite = gETPlannerResponse200 | gETPlannerResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type gETPlannerResponseComposite =
+  | gETPlannerResponse200
+  | gETPlannerResponse400;
+
 export type gETPlannerResponse = gETPlannerResponseComposite & {
   headers: Headers;
-}
+};
 
 export const getGETPlannerUrl = () => {
+  return `https://gourmet.cours.quimerch.com/planner`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/planner`
-}
-
-export const gETPlanner = async ( options?: RequestInit): Promise<gETPlannerResponse> => {
-  
-  return httpClient<gETPlannerResponse>(getGETPlannerUrl(),
-  {      
+export const gETPlanner = async (
+  options?: RequestInit
+): Promise<gETPlannerResponse> => {
+  return httpClient<gETPlannerResponse>(getGETPlannerUrl(), {
     ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+    method: "GET",
+  });
+};
 
 /**
  * #### Controller: 
@@ -1835,41 +1760,35 @@ export const gETPlanner = async ( options?: RequestInit): Promise<gETPlannerResp
  * @summary list recipes
  */
 export type gETRecipesResponse200 = {
-  data: Recipe[]
-  status: 200
-}
+  data: Recipe[];
+  status: 200;
+};
 
 export type gETRecipesResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETRecipesResponseComposite = gETRecipesResponse200 | gETRecipesResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type gETRecipesResponseComposite =
+  | gETRecipesResponse200
+  | gETRecipesResponse400;
+
 export type gETRecipesResponse = gETRecipesResponseComposite & {
   headers: Headers;
-}
+};
 
 export const getGETRecipesUrl = () => {
+  return `https://gourmet.cours.quimerch.com/recipes`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/recipes`
-}
-
-export const gETRecipes = async ( options?: RequestInit): Promise<gETRecipesResponse> => {
-  
-  return httpClient<gETRecipesResponse>(getGETRecipesUrl(),
-  {      
+export const gETRecipes = async (
+  options?: RequestInit
+): Promise<gETRecipesResponse> => {
+  return httpClient<gETRecipesResponse>(getGETRecipesUrl(), {
     ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+    method: "GET",
+  });
+};
 
 /**
  * #### Controller: 
@@ -1889,48 +1808,48 @@ This is a demo route, it is not useful for the Gourmet app but showcases Fuego f
  * @summary show recipes list
  */
 export type gETRecipesListResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type gETRecipesListResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETRecipesListResponseComposite = gETRecipesListResponse200 | gETRecipesListResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type gETRecipesListResponseComposite =
+  | gETRecipesListResponse200
+  | gETRecipesListResponse400;
+
 export type gETRecipesListResponse = gETRecipesListResponseComposite & {
   headers: Headers;
-}
+};
 
-export const getGETRecipesListUrl = (params?: GETRecipesListParams,) => {
+export const getGETRecipesListUrl = (params?: GETRecipesListParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
-    
     if (value !== undefined) {
-      normalizedParams.append(key, value === null ? 'null' : value.toString())
+      normalizedParams.append(key, value === null ? "null" : value.toString());
     }
   });
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://gourmet.cours.quimerch.com/recipes-list?${stringifiedParams}` : `https://gourmet.cours.quimerch.com/recipes-list`
-}
+  return stringifiedParams.length > 0
+    ? `https://gourmet.cours.quimerch.com/recipes-list?${stringifiedParams}`
+    : `https://gourmet.cours.quimerch.com/recipes-list`;
+};
 
-export const gETRecipesList = async (params?: GETRecipesListParams, options?: RequestInit): Promise<gETRecipesListResponse> => {
-  
-  return httpClient<gETRecipesListResponse>(getGETRecipesListUrl(params),
-  {      
+export const gETRecipesList = async (
+  params?: GETRecipesListParams,
+  options?: RequestInit
+): Promise<gETRecipesListResponse> => {
+  return httpClient<gETRecipesListResponse>(getGETRecipesListUrl(params), {
     ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+    method: "GET",
+  });
+};
 
 /**
  * #### Controller: 
@@ -1950,41 +1869,35 @@ This is a demo route, it is not useful for the Gourmet app but showcases Fuego f
  * @summary show recipes std
  */
 export type gETRecipesStdResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type gETRecipesStdResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETRecipesStdResponseComposite = gETRecipesStdResponse200 | gETRecipesStdResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type gETRecipesStdResponseComposite =
+  | gETRecipesStdResponse200
+  | gETRecipesStdResponse400;
+
 export type gETRecipesStdResponse = gETRecipesStdResponseComposite & {
   headers: Headers;
-}
+};
 
 export const getGETRecipesStdUrl = () => {
+  return `https://gourmet.cours.quimerch.com/recipes-std`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/recipes-std`
-}
-
-export const gETRecipesStd = async ( options?: RequestInit): Promise<gETRecipesStdResponse> => {
-  
-  return httpClient<gETRecipesStdResponse>(getGETRecipesStdUrl(),
-  {      
+export const gETRecipesStd = async (
+  options?: RequestInit
+): Promise<gETRecipesStdResponse> => {
+  return httpClient<gETRecipesStdResponse>(getGETRecipesStdUrl(), {
     ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+    method: "GET",
+  });
+};
 
 /**
  * #### Controller: 
@@ -2004,41 +1917,35 @@ This is a demo route, it is not useful for the Gourmet app but showcases Fuego f
  * @summary get all recipes standard with helpers
  */
 export type gETRecipesStdJsonResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type gETRecipesStdJsonResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETRecipesStdJsonResponseComposite = gETRecipesStdJsonResponse200 | gETRecipesStdJsonResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type gETRecipesStdJsonResponseComposite =
+  | gETRecipesStdJsonResponse200
+  | gETRecipesStdJsonResponse400;
+
 export type gETRecipesStdJsonResponse = gETRecipesStdJsonResponseComposite & {
   headers: Headers;
-}
+};
 
 export const getGETRecipesStdJsonUrl = () => {
+  return `https://gourmet.cours.quimerch.com/recipes-std-json`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/recipes-std-json`
-}
-
-export const gETRecipesStdJson = async ( options?: RequestInit): Promise<gETRecipesStdJsonResponse> => {
-  
-  return httpClient<gETRecipesStdJsonResponse>(getGETRecipesStdJsonUrl(),
-  {      
+export const gETRecipesStdJson = async (
+  options?: RequestInit
+): Promise<gETRecipesStdJsonResponse> => {
+  return httpClient<gETRecipesStdJsonResponse>(getGETRecipesStdJsonUrl(), {
     ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+    method: "GET",
+  });
+};
 
 /**
  * #### Controller: 
@@ -2057,41 +1964,36 @@ export const gETRecipesStdJson = async ( options?: RequestInit): Promise<gETReci
  * @summary single recipe
  */
 export type gETRecipesIdResponse200 = {
-  data: Recipe
-  status: 200
-}
+  data: Recipe;
+  status: 200;
+};
 
 export type gETRecipesIdResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETRecipesIdResponseComposite = gETRecipesIdResponse200 | gETRecipesIdResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type gETRecipesIdResponseComposite =
+  | gETRecipesIdResponse200
+  | gETRecipesIdResponse400;
+
 export type gETRecipesIdResponse = gETRecipesIdResponseComposite & {
   headers: Headers;
-}
+};
 
-export const getGETRecipesIdUrl = (id: string,) => {
+export const getGETRecipesIdUrl = (id: string) => {
+  return `https://gourmet.cours.quimerch.com/recipes/${id}`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/recipes/${id}`
-}
-
-export const gETRecipesId = async (id: string, options?: RequestInit): Promise<gETRecipesIdResponse> => {
-  
-  return httpClient<gETRecipesIdResponse>(getGETRecipesIdUrl(id),
-  {      
+export const gETRecipesId = async (
+  id: string,
+  options?: RequestInit
+): Promise<gETRecipesIdResponse> => {
+  return httpClient<gETRecipesIdResponse>(getGETRecipesIdUrl(id), {
     ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+    method: "GET",
+  });
+};
 
 /**
  * #### Controller: 
@@ -2110,41 +2012,40 @@ export const gETRecipesId = async (id: string, options?: RequestInit): Promise<g
  * @summary related recipes
  */
 export type gETRecipesIdRelatedResponse200 = {
-  data: Recipe[]
-  status: 200
-}
+  data: Recipe[];
+  status: 200;
+};
 
 export type gETRecipesIdRelatedResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETRecipesIdRelatedResponseComposite = gETRecipesIdRelatedResponse200 | gETRecipesIdRelatedResponse400;
-    
-export type gETRecipesIdRelatedResponse = gETRecipesIdRelatedResponseComposite & {
-  headers: Headers;
-}
+  data: HTTPError;
+  status: 400;
+};
 
-export const getGETRecipesIdRelatedUrl = (id: string,) => {
+export type gETRecipesIdRelatedResponseComposite =
+  | gETRecipesIdRelatedResponse200
+  | gETRecipesIdRelatedResponse400;
 
+export type gETRecipesIdRelatedResponse =
+  gETRecipesIdRelatedResponseComposite & {
+    headers: Headers;
+  };
 
-  
+export const getGETRecipesIdRelatedUrl = (id: string) => {
+  return `https://gourmet.cours.quimerch.com/recipes/${id}/related`;
+};
 
-  return `https://gourmet.cours.quimerch.com/recipes/${id}/related`
-}
-
-export const gETRecipesIdRelated = async (id: string, options?: RequestInit): Promise<gETRecipesIdRelatedResponse> => {
-  
-  return httpClient<gETRecipesIdRelatedResponse>(getGETRecipesIdRelatedUrl(id),
-  {      
-    ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+export const gETRecipesIdRelated = async (
+  id: string,
+  options?: RequestInit
+): Promise<gETRecipesIdRelatedResponse> => {
+  return httpClient<gETRecipesIdRelatedResponse>(
+    getGETRecipesIdRelatedUrl(id),
+    {
+      ...options,
+      method: "GET",
+    }
+  );
+};
 
 /**
  * #### Controller: 
@@ -2163,41 +2064,36 @@ Get the realtime number of favorites for a recipe with Server-Sent Events
  * @summary favorites count
  */
 export type gETRecipesIdStarsResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type gETRecipesIdStarsResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETRecipesIdStarsResponseComposite = gETRecipesIdStarsResponse200 | gETRecipesIdStarsResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type gETRecipesIdStarsResponseComposite =
+  | gETRecipesIdStarsResponse200
+  | gETRecipesIdStarsResponse400;
+
 export type gETRecipesIdStarsResponse = gETRecipesIdStarsResponseComposite & {
   headers: Headers;
-}
+};
 
-export const getGETRecipesIdStarsUrl = (id: string,) => {
+export const getGETRecipesIdStarsUrl = (id: string) => {
+  return `https://gourmet.cours.quimerch.com/recipes/${id}/stars`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/recipes/${id}/stars`
-}
-
-export const gETRecipesIdStars = async (id: string, options?: RequestInit): Promise<gETRecipesIdStarsResponse> => {
-  
-  return httpClient<gETRecipesIdStarsResponse>(getGETRecipesIdStarsUrl(id),
-  {      
+export const gETRecipesIdStars = async (
+  id: string,
+  options?: RequestInit
+): Promise<gETRecipesIdStarsResponse> => {
+  return httpClient<gETRecipesIdStarsResponse>(getGETRecipesIdStarsUrl(id), {
     ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+    method: "GET",
+  });
+};
 
 /**
  * #### Controller: 
@@ -2216,41 +2112,40 @@ Fake route for testing the realtime number of favorites for a recipe with Server
  * @summary favorites count fake
  */
 export type gETRecipesIdStarsFakeResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type gETRecipesIdStarsFakeResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETRecipesIdStarsFakeResponseComposite = gETRecipesIdStarsFakeResponse200 | gETRecipesIdStarsFakeResponse400;
-    
-export type gETRecipesIdStarsFakeResponse = gETRecipesIdStarsFakeResponseComposite & {
-  headers: Headers;
-}
+  data: HTTPError;
+  status: 400;
+};
 
-export const getGETRecipesIdStarsFakeUrl = (id: string,) => {
+export type gETRecipesIdStarsFakeResponseComposite =
+  | gETRecipesIdStarsFakeResponse200
+  | gETRecipesIdStarsFakeResponse400;
 
+export type gETRecipesIdStarsFakeResponse =
+  gETRecipesIdStarsFakeResponseComposite & {
+    headers: Headers;
+  };
 
-  
+export const getGETRecipesIdStarsFakeUrl = (id: string) => {
+  return `https://gourmet.cours.quimerch.com/recipes/${id}/stars/fake`;
+};
 
-  return `https://gourmet.cours.quimerch.com/recipes/${id}/stars/fake`
-}
-
-export const gETRecipesIdStarsFake = async (id: string, options?: RequestInit): Promise<gETRecipesIdStarsFakeResponse> => {
-  
-  return httpClient<gETRecipesIdStarsFakeResponse>(getGETRecipesIdStarsFakeUrl(id),
-  {      
-    ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+export const gETRecipesIdStarsFake = async (
+  id: string,
+  options?: RequestInit
+): Promise<gETRecipesIdStarsFakeResponse> => {
+  return httpClient<gETRecipesIdStarsFakeResponse>(
+    getGETRecipesIdStarsFakeUrl(id),
+    {
+      ...options,
+      method: "GET",
+    }
+  );
+};
 
 /**
  * #### Controller: 
@@ -2270,41 +2165,35 @@ export const gETRecipesIdStarsFake = async (id: string, options?: RequestInit): 
  * @summary robots
  */
 export type gETRobotsTxtResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type gETRobotsTxtResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETRobotsTxtResponseComposite = gETRobotsTxtResponse200 | gETRobotsTxtResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type gETRobotsTxtResponseComposite =
+  | gETRobotsTxtResponse200
+  | gETRobotsTxtResponse400;
+
 export type gETRobotsTxtResponse = gETRobotsTxtResponseComposite & {
   headers: Headers;
-}
+};
 
 export const getGETRobotsTxtUrl = () => {
+  return `https://gourmet.cours.quimerch.com/robots.txt`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/robots.txt`
-}
-
-export const gETRobotsTxt = async ( options?: RequestInit): Promise<gETRobotsTxtResponse> => {
-  
-  return httpClient<gETRobotsTxtResponse>(getGETRobotsTxtUrl(),
-  {      
+export const gETRobotsTxt = async (
+  options?: RequestInit
+): Promise<gETRobotsTxtResponse> => {
+  return httpClient<gETRobotsTxtResponse>(getGETRobotsTxtUrl(), {
     ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+    method: "GET",
+  });
+};
 
 /**
  * #### Controller: 
@@ -2323,48 +2212,48 @@ export const gETRobotsTxt = async ( options?: RequestInit): Promise<gETRobotsTxt
  * @summary search recipes
  */
 export type gETSearchResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type gETSearchResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETSearchResponseComposite = gETSearchResponse200 | gETSearchResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type gETSearchResponseComposite =
+  | gETSearchResponse200
+  | gETSearchResponse400;
+
 export type gETSearchResponse = gETSearchResponseComposite & {
   headers: Headers;
-}
+};
 
-export const getGETSearchUrl = (params: GETSearchParams,) => {
+export const getGETSearchUrl = (params: GETSearchParams) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
-    
     if (value !== undefined) {
-      normalizedParams.append(key, value === null ? 'null' : value.toString())
+      normalizedParams.append(key, value === null ? "null" : value.toString());
     }
   });
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://gourmet.cours.quimerch.com/search?${stringifiedParams}` : `https://gourmet.cours.quimerch.com/search`
-}
+  return stringifiedParams.length > 0
+    ? `https://gourmet.cours.quimerch.com/search?${stringifiedParams}`
+    : `https://gourmet.cours.quimerch.com/search`;
+};
 
-export const gETSearch = async (params: GETSearchParams, options?: RequestInit): Promise<gETSearchResponse> => {
-  
-  return httpClient<gETSearchResponse>(getGETSearchUrl(params),
-  {      
+export const gETSearch = async (
+  params: GETSearchParams,
+  options?: RequestInit
+): Promise<gETSearchResponse> => {
+  return httpClient<gETSearchResponse>(getGETSearchUrl(params), {
     ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+    method: "GET",
+  });
+};
 
 /**
  * #### Controller: 
@@ -2383,41 +2272,39 @@ export const gETSearch = async (params: GETSearchParams, options?: RequestInit):
  * @summary get user by username
  */
 export type gETUsersUsernameResponse200 = {
-  data: User
-  status: 200
-}
+  data: User;
+  status: 200;
+};
 
 export type gETUsersUsernameResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETUsersUsernameResponseComposite = gETUsersUsernameResponse200 | gETUsersUsernameResponse400;
-    
+  data: HTTPError;
+  status: 400;
+};
+
+export type gETUsersUsernameResponseComposite =
+  | gETUsersUsernameResponse200
+  | gETUsersUsernameResponse400;
+
 export type gETUsersUsernameResponse = gETUsersUsernameResponseComposite & {
   headers: Headers;
-}
+};
 
-export const getGETUsersUsernameUrl = (username: string,) => {
+export const getGETUsersUsernameUrl = (username: string) => {
+  return `https://gourmet.cours.quimerch.com/users/${username}`;
+};
 
-
-  
-
-  return `https://gourmet.cours.quimerch.com/users/${username}`
-}
-
-export const gETUsersUsername = async (username: string, options?: RequestInit): Promise<gETUsersUsernameResponse> => {
-  
-  return httpClient<gETUsersUsernameResponse>(getGETUsersUsernameUrl(username),
-  {      
-    ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+export const gETUsersUsername = async (
+  username: string,
+  options?: RequestInit
+): Promise<gETUsersUsernameResponse> => {
+  return httpClient<gETUsersUsernameResponse>(
+    getGETUsersUsernameUrl(username),
+    {
+      ...options,
+      method: "GET",
+    }
+  );
+};
 
 /**
  * #### Controller: 
@@ -2436,50 +2323,56 @@ export const gETUsersUsername = async (username: string, options?: RequestInit):
  * @summary remove favorite
  */
 export type dELETEUsersUsernameFavoritesResponse200 = {
-  data: UnknownInterface
-  status: 200
-}
+  data: UnknownInterface;
+  status: 200;
+};
 
 export type dELETEUsersUsernameFavoritesResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type dELETEUsersUsernameFavoritesResponseComposite = dELETEUsersUsernameFavoritesResponse200 | dELETEUsersUsernameFavoritesResponse400;
-    
-export type dELETEUsersUsernameFavoritesResponse = dELETEUsersUsernameFavoritesResponseComposite & {
-  headers: Headers;
-}
+  data: HTTPError;
+  status: 400;
+};
 
-export const getDELETEUsersUsernameFavoritesUrl = (username: string,
-    params: DELETEUsersUsernameFavoritesParams,) => {
+export type dELETEUsersUsernameFavoritesResponseComposite =
+  | dELETEUsersUsernameFavoritesResponse200
+  | dELETEUsersUsernameFavoritesResponse400;
+
+export type dELETEUsersUsernameFavoritesResponse =
+  dELETEUsersUsernameFavoritesResponseComposite & {
+    headers: Headers;
+  };
+
+export const getDELETEUsersUsernameFavoritesUrl = (
+  username: string,
+  params: DELETEUsersUsernameFavoritesParams
+) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
-    
     if (value !== undefined) {
-      normalizedParams.append(key, value === null ? 'null' : value.toString())
+      normalizedParams.append(key, value === null ? "null" : value.toString());
     }
   });
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://gourmet.cours.quimerch.com/users/${username}/favorites?${stringifiedParams}` : `https://gourmet.cours.quimerch.com/users/${username}/favorites`
-}
+  return stringifiedParams.length > 0
+    ? `https://gourmet.cours.quimerch.com/users/${username}/favorites?${stringifiedParams}`
+    : `https://gourmet.cours.quimerch.com/users/${username}/favorites`;
+};
 
-export const dELETEUsersUsernameFavorites = async (username: string,
-    params: DELETEUsersUsernameFavoritesParams, options?: RequestInit): Promise<dELETEUsersUsernameFavoritesResponse> => {
-  
-  return httpClient<dELETEUsersUsernameFavoritesResponse>(getDELETEUsersUsernameFavoritesUrl(username,params),
-  {      
-    ...options,
-    method: 'DELETE'
-    
-    
-  }
-);}
-
-
+export const dELETEUsersUsernameFavorites = async (
+  username: string,
+  params: DELETEUsersUsernameFavoritesParams,
+  options?: RequestInit
+): Promise<dELETEUsersUsernameFavoritesResponse> => {
+  return httpClient<dELETEUsersUsernameFavoritesResponse>(
+    getDELETEUsersUsernameFavoritesUrl(username, params),
+    {
+      ...options,
+      method: "DELETE",
+    }
+  );
+};
 
 /**
  * #### Controller: 
@@ -2498,41 +2391,40 @@ export const dELETEUsersUsernameFavorites = async (username: string,
  * @summary get favorites by user
  */
 export type gETUsersUsernameFavoritesResponse200 = {
-  data: GetFavoritesByUserRow[]
-  status: 200
-}
+  data: GetFavoritesByUserRow[];
+  status: 200;
+};
 
 export type gETUsersUsernameFavoritesResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETUsersUsernameFavoritesResponseComposite = gETUsersUsernameFavoritesResponse200 | gETUsersUsernameFavoritesResponse400;
-    
-export type gETUsersUsernameFavoritesResponse = gETUsersUsernameFavoritesResponseComposite & {
-  headers: Headers;
-}
+  data: HTTPError;
+  status: 400;
+};
 
-export const getGETUsersUsernameFavoritesUrl = (username: string,) => {
+export type gETUsersUsernameFavoritesResponseComposite =
+  | gETUsersUsernameFavoritesResponse200
+  | gETUsersUsernameFavoritesResponse400;
 
+export type gETUsersUsernameFavoritesResponse =
+  gETUsersUsernameFavoritesResponseComposite & {
+    headers: Headers;
+  };
 
-  
+export const getGETUsersUsernameFavoritesUrl = (username: string) => {
+  return `https://gourmet.cours.quimerch.com/users/${username}/favorites`;
+};
 
-  return `https://gourmet.cours.quimerch.com/users/${username}/favorites`
-}
-
-export const gETUsersUsernameFavorites = async (username: string, options?: RequestInit): Promise<gETUsersUsernameFavoritesResponse> => {
-  
-  return httpClient<gETUsersUsernameFavoritesResponse>(getGETUsersUsernameFavoritesUrl(username),
-  {      
-    ...options,
-    method: 'GET'
-    
-    
-  }
-);}
-
-
+export const gETUsersUsernameFavorites = async (
+  username: string,
+  options?: RequestInit
+): Promise<gETUsersUsernameFavoritesResponse> => {
+  return httpClient<gETUsersUsernameFavoritesResponse>(
+    getGETUsersUsernameFavoritesUrl(username),
+    {
+      ...options,
+      method: "GET",
+    }
+  );
+};
 
 /**
  * #### Controller: 
@@ -2551,50 +2443,56 @@ export const gETUsersUsernameFavorites = async (username: string, options?: Requ
  * @summary add favorite
  */
 export type pOSTUsersUsernameFavoritesResponse200 = {
-  data: UsersRecipesFavorite
-  status: 200
-}
+  data: UsersRecipesFavorite;
+  status: 200;
+};
 
 export type pOSTUsersUsernameFavoritesResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type pOSTUsersUsernameFavoritesResponseComposite = pOSTUsersUsernameFavoritesResponse200 | pOSTUsersUsernameFavoritesResponse400;
-    
-export type pOSTUsersUsernameFavoritesResponse = pOSTUsersUsernameFavoritesResponseComposite & {
-  headers: Headers;
-}
+  data: HTTPError;
+  status: 400;
+};
 
-export const getPOSTUsersUsernameFavoritesUrl = (username: string,
-    params: POSTUsersUsernameFavoritesParams,) => {
+export type pOSTUsersUsernameFavoritesResponseComposite =
+  | pOSTUsersUsernameFavoritesResponse200
+  | pOSTUsersUsernameFavoritesResponse400;
+
+export type pOSTUsersUsernameFavoritesResponse =
+  pOSTUsersUsernameFavoritesResponseComposite & {
+    headers: Headers;
+  };
+
+export const getPOSTUsersUsernameFavoritesUrl = (
+  username: string,
+  params: POSTUsersUsernameFavoritesParams
+) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
-    
     if (value !== undefined) {
-      normalizedParams.append(key, value === null ? 'null' : value.toString())
+      normalizedParams.append(key, value === null ? "null" : value.toString());
     }
   });
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `https://gourmet.cours.quimerch.com/users/${username}/favorites?${stringifiedParams}` : `https://gourmet.cours.quimerch.com/users/${username}/favorites`
-}
+  return stringifiedParams.length > 0
+    ? `https://gourmet.cours.quimerch.com/users/${username}/favorites?${stringifiedParams}`
+    : `https://gourmet.cours.quimerch.com/users/${username}/favorites`;
+};
 
-export const pOSTUsersUsernameFavorites = async (username: string,
-    params: POSTUsersUsernameFavoritesParams, options?: RequestInit): Promise<pOSTUsersUsernameFavoritesResponse> => {
-  
-  return httpClient<pOSTUsersUsernameFavoritesResponse>(getPOSTUsersUsernameFavoritesUrl(username,params),
-  {      
-    ...options,
-    method: 'POST'
-    
-    
-  }
-);}
-
-
+export const pOSTUsersUsernameFavorites = async (
+  username: string,
+  params: POSTUsersUsernameFavoritesParams,
+  options?: RequestInit
+): Promise<pOSTUsersUsernameFavoritesResponse> => {
+  return httpClient<pOSTUsersUsernameFavoritesResponse>(
+    getPOSTUsersUsernameFavoritesUrl(username, params),
+    {
+      ...options,
+      method: "POST",
+    }
+  );
+};
 
 /**
  * #### Controller: 
@@ -2613,36 +2511,39 @@ export const pOSTUsersUsernameFavorites = async (username: string,
  * @summary get favorites by user unsecure sql
  */
 export type gETUsersUsernameFavoritesSqlinjectionResponse200 = {
-  data: UserFavorite[]
-  status: 200
-}
+  data: UserFavorite[];
+  status: 200;
+};
 
 export type gETUsersUsernameFavoritesSqlinjectionResponse400 = {
-  data: HTTPError
-  status: 400
-}
-    
-export type gETUsersUsernameFavoritesSqlinjectionResponseComposite = gETUsersUsernameFavoritesSqlinjectionResponse200 | gETUsersUsernameFavoritesSqlinjectionResponse400;
-    
-export type gETUsersUsernameFavoritesSqlinjectionResponse = gETUsersUsernameFavoritesSqlinjectionResponseComposite & {
-  headers: Headers;
-}
+  data: HTTPError;
+  status: 400;
+};
 
-export const getGETUsersUsernameFavoritesSqlinjectionUrl = (username: string,) => {
+export type gETUsersUsernameFavoritesSqlinjectionResponseComposite =
+  | gETUsersUsernameFavoritesSqlinjectionResponse200
+  | gETUsersUsernameFavoritesSqlinjectionResponse400;
 
+export type gETUsersUsernameFavoritesSqlinjectionResponse =
+  gETUsersUsernameFavoritesSqlinjectionResponseComposite & {
+    headers: Headers;
+  };
 
-  
+export const getGETUsersUsernameFavoritesSqlinjectionUrl = (
+  username: string
+) => {
+  return `https://gourmet.cours.quimerch.com/users/${username}/favorites/sqlinjection`;
+};
 
-  return `https://gourmet.cours.quimerch.com/users/${username}/favorites/sqlinjection`
-}
-
-export const gETUsersUsernameFavoritesSqlinjection = async (username: string, options?: RequestInit): Promise<gETUsersUsernameFavoritesSqlinjectionResponse> => {
-  
-  return httpClient<gETUsersUsernameFavoritesSqlinjectionResponse>(getGETUsersUsernameFavoritesSqlinjectionUrl(username),
-  {      
-    ...options,
-    method: 'GET'
-    
-    
-  }
-);}
+export const gETUsersUsernameFavoritesSqlinjection = async (
+  username: string,
+  options?: RequestInit
+): Promise<gETUsersUsernameFavoritesSqlinjectionResponse> => {
+  return httpClient<gETUsersUsernameFavoritesSqlinjectionResponse>(
+    getGETUsersUsernameFavoritesSqlinjectionUrl(username),
+    {
+      ...options,
+      method: "GET",
+    }
+  );
+};
