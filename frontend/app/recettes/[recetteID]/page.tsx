@@ -51,7 +51,7 @@ export default async function RecipePage({
           <Text variant="body">Pas d&apos;image disponible...</Text>
         )}
         <Text variant="title-h1">{name}</Text>
-        <LikeToggle recetteID={id} />
+        <LikeToggle recetteID={id} defaultState={} />
         <div className="grid grid-cols-2 gap-4 mb-6">
           <div className="text-sm font-medium text-gray-700">
             <strong>Category:</strong> {category}
