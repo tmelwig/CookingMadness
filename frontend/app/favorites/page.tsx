@@ -4,7 +4,7 @@ import Text from "@/app/components/Text";
 import useAuthStore from "../stores/auth-store";
 import { checkIfUserIsLoggedIn } from "@/api/auth";
 import { gETFavorites, Recipe } from "@/api/gourmetAPI";
-import RecipeCell from "../components/RecipesGrid/RecipeCell";
+import RecipeCell from "../components/CardGrid/CardGridCell";
 
 export default function FavoritesPage(): JSX.Element {
   const { authState, setAuthState } = useAuthStore();

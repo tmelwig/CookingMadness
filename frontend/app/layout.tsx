@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "@/app/globals.css";
-import { RecipeProvider } from "@/app/contexts/RecipeContext";
 import NavBar from "./components/NavBar";
 
 const geistSans = Geist({
@@ -30,7 +29,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NavBar />
-        <RecipeProvider>{children}</RecipeProvider>
+        {children}
       </body>
     </html>
   );
