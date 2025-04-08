@@ -21,7 +21,7 @@ const LoginPage: React.FC = () => {
         setAuthState({ isConnected: true, username });
         router.push("/");
       } else {
-        console.log(res.data);
+        throw new Error("Login failed: " + res.data);
       }
     } catch (error) {
       console.error(error);

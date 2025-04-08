@@ -2,7 +2,7 @@
 import React, { JSX, useEffect } from "react";
 import Text from "@/app/components/Text";
 import useAuthStore from "../stores/auth-store";
-import { checkIfUserIsLoggedIn } from "@/api/auth";
+import { checkIfUserIsLoggedIn } from "@/app/lib/auth";
 import { gETFavorites, Recipe } from "@/api/gourmetAPI";
 import { CardGrid } from "../components/CardGrid/CardGrid";
 
@@ -10,10 +10,7 @@ export default function FavoritesPage(): JSX.Element {
   const { authState, setAuthState } = useAuthStore();
 
   useEffect(() => {
-    const checkIfLoggedIn = async () => {
-      await checkIfUserIsLoggedIn(setAuthState);
-    };
-    checkIfLoggedIn();
+    checkIfUserIsLoggedIn(setAuthState);
   }, [setAuthState]);
 
   return (
@@ -40,7 +37,6 @@ function FavoritesList(): JSX.Element {
             "Content-Type": "application/json",
           },
         });
-        console.log("Fetched favorites:", fetchedFavorites);
         if (fetchedFavorites.status !== 200) {
           console.error("Failed to fetch favorites:", fetchedFavorites);
           return;

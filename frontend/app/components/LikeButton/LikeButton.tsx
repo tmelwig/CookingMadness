@@ -1,10 +1,10 @@
 "use client";
-import React, { useState } from "react";
-import {
-  pOSTUsersUsernameFavorites,
-  dELETEUsersUsernameFavorites,
-} from "@/api/gourmetAPI";
+import React, { useEffect, useState } from "react";
+import { Recipe } from "@/api/gourmetAPI";
 import useAuthStore from "@/app/stores/auth-store";
+import { getFavorites } from "@/app/lib/getFavorites";
+import { delFavorite } from "@/app/lib/delFavorites";
+import { addFavorite } from "@/app/lib/addFavorite";
 
 type LikeToggleProps = {
   recetteID: string;
@@ -12,47 +12,37 @@ type LikeToggleProps = {
 
 export const LikeToggle = ({ recetteID }: LikeToggleProps) => {
   const { authState } = useAuthStore();
+  const [isDisabled, setIsDisabled] = useState(true);
   const [isLiked, setIsLiked] = useState(false);
+
+  useEffect(() => {
+    async function getLikedState() {
+      const storedFavorites = localStorage.getItem("favorites");
+      let favorites: Recipe[] = [];
+      if (storedFavorites) {
+        favorites = JSON.parse(storedFavorites);
+      } else {
+        favorites = await getFavorites();
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+      }
+      const isFavorite = favorites.some((recipe) => recipe.id === recetteID);
+      setIsLiked(isFavorite);
+      setIsDisabled(false);
+    }
+    getLikedState();
+  }, [recetteID]);
+
   const handleClick = () => {
     setIsLiked((prev) => !prev);
     const token = localStorage.getItem("token");
-    if (!token) {
+    if (!token || !authState?.username) {
       console.error("User is not authenticated");
       return;
     }
-    const headers = {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    };
     if (isLiked) {
-      dELETEUsersUsernameFavorites(
-        authState.username || "",
-        { recipeID: recetteID },
-        {
-          headers,
-        }
-      )
-        .then((res) => {
-          console.log("Removed from favorites:", res);
-        })
-        .catch((err) => {
-          console.error("Error removing from favorites:", err);
-        });
+      delFavorite(recetteID, authState.username);
     } else {
-      pOSTUsersUsernameFavorites(
-        authState.username || "",
-        { recipeID: recetteID },
-        {
-          headers,
-        }
-      )
-        .then((res) => {
-          console.log("Added to favorites:", res);
-        })
-        .catch((err) => {
-          console.error("Error adding to favorites:", err);
-        });
+      addFavorite(recetteID, authState.username);
     }
   };
 
@@ -62,6 +52,7 @@ export const LikeToggle = ({ recetteID }: LikeToggleProps) => {
         type="checkbox"
         className="hidden"
         checked={isLiked}
+        disabled={isDisabled}
         readOnly
       ></input>
       <span>{isLiked ? "❤️" : "🤍"}</span>
