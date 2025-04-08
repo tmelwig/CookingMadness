@@ -1,9 +1,20 @@
-import React, { JSX } from "react";
-import RecipesGrid from "@/app/components/RecipesGrid/RecipesGrid";
+import React from "react";
 import Text from "@/app/components/Text";
 import Image from "next/image";
+import { getRecipesAction } from "./actions/getRecipesAction";
+import { Recipe } from "@/api/gourmetAPI";
+import { CardGrid } from "./components/CardGrid/CardGrid";
 
-export default function Home(): JSX.Element {
+export default async function HomePage() {
+  let error = null;
+  let recipes: Recipe[] = [];
+
+  try {
+    recipes = await getRecipesAction();
+  } catch {
+    error = "Erreur lors de la récupération des recettes";
+  }
+
   return (
     <div className="relative w-full bg-orange-100">
       <div className="w-[75%] mx-auto bg-orange-300">
@@ -19,8 +30,16 @@ export default function Home(): JSX.Element {
       </div>
       <div className="p-5 bg-gray-100">
         <Text variant="title-h1">Home</Text>
-        <Text variant="description">Voici les recettes disponibles !</Text>
-        <RecipesGrid />
+        {error || recipes.length === 0 ? (
+          <Text variant="description">
+            {error || "Pas de recettes disponibles"}
+          </Text>
+        ) : (
+          <>
+            <Text variant="description">Voici les recettes disponibles !</Text>
+            <CardGrid gridItems={recipes} />
+          </>
+        )}
       </div>
     </div>
   );
