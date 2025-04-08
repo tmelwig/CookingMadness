@@ -19,7 +19,7 @@ export function RecipeProvider({ children }: { children: ReactNode }) {
   );
 }
 
-export function useRecipe() {
+export function useRecipe(): RecipeContextType {
   const context = useContext(RecipeContext);
   if (!context) {
     throw new Error("useRecipe must be used within a RecipeProvider");
