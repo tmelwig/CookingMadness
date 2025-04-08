@@ -8,9 +8,9 @@ import { gETRecipesId } from "@/api/gourmetAPI";
 export default async function RecipePage({
   params,
 }: {
-  params: { recetteID: string };
+  params: Promise<{ recetteID: string }>;
 }): Promise<JSX.Element> {
-  const recetteID = (await params).recetteID;
+  const { recetteID } = await params;
   const fetchedRecipe = await gETRecipesId(recetteID);
   if (
     fetchedRecipe.status !== 200 ||
@@ -51,7 +51,7 @@ export default async function RecipePage({
           <Text variant="body">Pas d&apos;image disponible...</Text>
         )}
         <Text variant="title-h1">{name}</Text>
-        <LikeToggle recetteID={id} defaultState={} />
+        <LikeToggle recetteID={id} />
         <div className="grid grid-cols-2 gap-4 mb-6">
           <div className="text-sm font-medium text-gray-700">
             <strong>Category:</strong> {category}
