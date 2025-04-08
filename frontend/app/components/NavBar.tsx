@@ -1,8 +1,9 @@
-"use client";
-import { JSX, useEffect } from "react";
-import Link from "next/link";
-import { checkIfUserIsLoggedIn } from "@/app/lib/auth";
-import useAuthStore from "../stores/auth-store";
+'use client';
+import React from 'react';
+import { JSX, useEffect } from 'react';
+import Link from 'next/link';
+import { checkIfUserIsLoggedIn } from '@/app/lib/auth';
+import useAuthStore from '@/app/stores/auth-store';
 
 export default function NavBar(): JSX.Element {
   const { authState, setAuthState } = useAuthStore();
@@ -15,7 +16,7 @@ export default function NavBar(): JSX.Element {
   }, [setAuthState]);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    localStorage.removeItem('token');
     setAuthState({ isConnected: false, username: null });
   };
 

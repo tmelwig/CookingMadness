@@ -1,0 +1,41 @@
+name: CI Workflow
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'frontend/**'
+
+jobs:
+  lint-format-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: |
+          cd frontend
+          npm install
+
+      - name: Run ESLint
+        run: |
+          cd frontend
+          npx eslint . --ext .js,.jsx,.ts,.tsx --fix --max-warnings 0
+
+      - name: Run Prettier
+        run: |
+          cd frontend
+          npx prettier --write .
+
+      - name: Build Next.js project
+        run: |
+          cd frontend
+          npm run build

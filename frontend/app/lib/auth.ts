@@ -1,5 +1,5 @@
 import { AuthState } from "@/app/stores/auth-store";
-import { gETMe } from "../../api/gourmetAPI";
+import { gETMe } from "@/api/gourmetAPI";
 
 const authHeaders = (token: string) => ({
   Authorization: `Bearer ${token}`,
