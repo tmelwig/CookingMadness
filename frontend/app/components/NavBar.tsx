@@ -1,7 +1,7 @@
 "use client";
 import { JSX, useEffect } from "react";
 import Link from "next/link";
-import { checkIfUserIsLoggedIn } from "@/api/auth";
+import { checkIfUserIsLoggedIn } from "@/app/lib/auth";
 import useAuthStore from "../stores/auth-store";
 
 export default function NavBar(): JSX.Element {

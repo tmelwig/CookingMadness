@@ -25,7 +25,16 @@ export const httpClient = async <T>(
     } as T;
   }
 
-  const data = await response.json();
+  const isJson = response.headers
+    .get("content-type")
+    ?.includes("application/json");
+
+  let data = null;
+
+  if (isJson) {
+    const text = await response.text();
+    data = text ? JSON.parse(text) : null;
+  }
 
   return {
     status: response.status,

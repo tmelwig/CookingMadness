@@ -1,7 +1,7 @@
 import React from "react";
 import Text from "@/app/components/Text";
 import Image from "next/image";
-import { getRecipesAction } from "./actions/getRecipesAction";
+import { getRecipesAction } from "./lib/actions/getRecipesAction";
 import { Recipe } from "@/api/gourmetAPI";
 import { CardGrid } from "./components/CardGrid/CardGrid";
 

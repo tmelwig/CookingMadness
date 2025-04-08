@@ -345,7 +345,7 @@ export interface UsersRecipesFavorite {
 /**
  * unknown-interface schema
  */
-export interface UnknownInterface {}
+export type UnknownInterface = object;
 
 export type GETAdminParams = {
   /**
