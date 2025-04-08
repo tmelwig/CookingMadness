@@ -13,7 +13,9 @@ const LoginPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await pOSTLogin({ username, password });
+      const res = await pOSTLogin({ username, password }, undefined, {
+        credentials: "include",
+      });
       if ("token" in res.data && res.data.token) {
         localStorage.setItem("token", res.data.token);
         setAuthState({ isConnected: true, username });

@@ -12,8 +12,8 @@ const checkIfUserIsLoggedIn = async (
     const response = await gETMe({
       headers: {
         Authorization: `Bearer ${token}`,
-        Accept: "application/json",
         "Content-Type": "application/json",
+        Accept: "application/json",
       },
     });
     if (response.status === 200 && "username" in response.data) {
