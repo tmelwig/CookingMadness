@@ -4,7 +4,7 @@ import Text from "@/app/components/Text";
 import useAuthStore from "../stores/auth-store";
 import { checkIfUserIsLoggedIn } from "@/api/auth";
 import { gETFavorites, Recipe } from "@/api/gourmetAPI";
-import RecipeCell from "../components/CardGrid/CardGridCell";
+import { CardGrid } from "../components/CardGrid/CardGrid";
 
 export default function FavoritesPage(): JSX.Element {
   const { authState, setAuthState } = useAuthStore();
@@ -60,13 +60,7 @@ function FavoritesList(): JSX.Element {
   return (
     <div>
       <Text variant="title-h1">Favoris</Text>
-      <ul>
-        {favorites.map((recipe) => (
-          <li key={recipe.id}>
-            <RecipeCell recipe={recipe} onClick={() => {}} />
-          </li>
-        ))}
-      </ul>
+      <CardGrid gridItems={favorites} />
     </div>
   );
 }
