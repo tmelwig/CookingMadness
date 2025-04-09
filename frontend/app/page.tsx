@@ -16,27 +16,35 @@ export default async function HomePage() {
   }
 
   return (
-    <div className="relative w-full bg-orange-100">
-      <div className="w-[75%] mx-auto bg-orange-300">
+    <div className="relative w-full bg-custom-light-orange">
+      <div className="relative max-w-[1047px] w-[75%] mx-auto bg-custom-dark-orange flex items-center justify-center">
         <Image
           src="/assets/images/cuisine_bis.webp"
           alt="Cuisine Border"
           width={1047}
           height={400}
           priority
-          className="opacity-75 filter hue-rotate-340"
+          className="opacity-55 filter hue-rotate-340"
           sizes="(max-width: 1047px) 100vw, 1047px"
         />
+        <Text
+          className="absolute xl:text-8xl lg:text-6xl md:text-5xl sm:text-4xl text-white"
+          variant="title-h1"
+        >
+          Cooking Madness
+        </Text>
       </div>
-      <div className="p-5 bg-gray-100">
-        <Text variant="title-h1">Home</Text>
+      <div className="p-5 bg-neutral-100">
+        <Text variant="title-h1">Recettes</Text>
         {error || recipes.length === 0 ? (
           <Text variant="description">
             {error || "Pas de recettes disponibles"}
           </Text>
         ) : (
           <>
-            <Text variant="description">Voici les recettes disponibles !</Text>
+            <Text variant="description">
+              Les meilleures recettes des utilisateurs
+            </Text>
             <CardGrid gridItems={recipes} />
           </>
         )}

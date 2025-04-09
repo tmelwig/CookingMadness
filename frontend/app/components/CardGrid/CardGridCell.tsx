@@ -17,30 +17,32 @@ export interface CardGridCellProps {
 export const CardGridCell: React.FC<CardGridCellProps> = ({
   gridItem: cardGridElement,
 }: CardGridCellProps) => {
-  const { id, image_url, name, description } = cardGridElement;
+  const { id, image_url, name } = cardGridElement;
 
   return (
-    <Link
-      href={`/recettes/${id}`}
-      className="flex flex-col items-center max-w-xs border border-gray-300 rounded-lg dark:border-zinc-700 p-4 cursor-pointer hover:cursor-pointer hover:bg-gray-50 dark:hover:bg-zinc-800 hover:shadow-md transition"
-      data-recipe-id={id}
-    >
-      <Text variant="title-h3">{name}</Text>
-      <Text variant="description" italic>
-        {description}
-      </Text>
-      {image_url ? (
-        <Image
-          src={image_url}
-          alt={name || "Recipe"}
-          className="w-full h-48 object-cover mb-2 md:mb-5 rounded-lg shadow-md aspect-square"
-          width={200}
-          height={200}
-          sizes="(max-width: 200px) 100vw, 200px"
-        />
-      ) : (
-        <Text variant="body">Pas d&apos;image disponible...</Text>
-      )}
-    </Link>
+    <div className="relative w-70 h-60 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+      <Link href={`/recettes/${id}`}>
+        <div className="relative w-full h-full overflow-hidden rounded-lg">
+          <Image
+            alt={`${name} image`}
+            src={
+              image_url ||
+              "https://fermesaintandre.com/wp-content/uploads/images_wavesoft/GPL_photo_1.jpg_mfit_c80_w621_h621.webp.webp"
+            }
+            quality={100}
+            fill
+            className="object-cover"
+          />
+          <div className="absolute bottom-0 left-0 w-full h-1/5 bg-black opacity-70">
+            <Text
+              variant="title-h3"
+              className="absolute bottom-2 left-2 text-white px-2 py-1 rounded"
+            >
+              {name}
+            </Text>
+          </div>
+        </div>
+      </Link>
+    </div>
   );
 };

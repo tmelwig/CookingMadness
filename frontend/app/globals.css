@@ -3,22 +3,13 @@
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-custom-dark: #003366;
+  --color-custom-light-dark: #002347;
+  --color-custom-light-orange: #f9a147;
+  --color-custom-orange: #f17901;
+  --color-custom-dark-orange: #d45101;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
