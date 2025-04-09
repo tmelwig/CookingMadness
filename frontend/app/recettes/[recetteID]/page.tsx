@@ -38,7 +38,15 @@ export default async function RecipePage({
   return (
     <div className="max-w-4xl mx-auto">
       <div className="flex flex-col items-center mb-8">
-        {image_url ? (
+        <div className="flex items-center gap-10">
+          <LikeToggle recetteID={id} />
+
+          <Text className="my-4" variant="title-h1">
+            {name}
+          </Text>
+        </div>
+
+        {image_url && (
           <Image
             src={image_url}
             alt={name || "Recipe"}
@@ -47,11 +55,7 @@ export default async function RecipePage({
             height={400}
             sizes="(max-width: 400px) 100vw, 400px"
           />
-        ) : (
-          <Text variant="body">Pas d&apos;image disponible...</Text>
         )}
-        <Text variant="title-h1">{name}</Text>
-        <LikeToggle recetteID={id} />
         <div className="grid grid-cols-2 gap-4 mb-6">
           <div className="text-sm font-medium text-gray-700">
             <strong>Category:</strong> {category}
@@ -85,15 +89,10 @@ export default async function RecipePage({
       </div>
 
       <div className="mb-8">
-        <Text variant="body">{instructions}</Text>
+        <Text variant="body">
+          {instructions || "Les instructions ne sont pas disponibles"}
+        </Text>
       </div>
-
-      {/* <button
-        onClick={() => router.push("/")}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-      >
-        Retourner sur la page d&apos;accueil
-      </button> */}
     </div>
   );
 }

@@ -20,7 +20,7 @@ export default function NavBar(): JSX.Element {
   };
 
   return (
-    <nav className="bg-orange-600 text-white p-4">
+    <nav className="bg-custom-dark-orange text-white p-4">
       <div className="container mx-auto flex justify-between">
         <Link href="/" className="text-lg font-bold">
           Recettes
