@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { LikeToggle } from '@/app/components/LikeButton/LikeButton';
 import { gETRecipesId } from '@/api/gourmetAPI';
+import { formatDate } from '@/app/utils/date';
 
 export default async function RecipePage({
   params,
@@ -27,10 +28,8 @@ export default async function RecipePage({
     category,
     calories,
     cook_time,
-    cost,
     created_at,
     prep_time,
-    servings,
     instructions,
     when_to_eat,
   } = fetchedRecipe.data;
@@ -56,42 +55,77 @@ export default async function RecipePage({
             sizes="(max-width: 400px) 100vw, 400px"
           />
         )}
-        <div className="grid grid-cols-2 gap-4 mb-6">
-          <div className="text-sm font-medium text-gray-700">
-            <strong>Category:</strong> {category}
+        <div className="bg-white p-6 rounded-lg shadow-md space-y-8 mx-auto w-[70%]">
+          <div className="grid grid-cols-2 gap-4">
+            {category && (
+              <div>
+                <Text variant="detail" className="text-gray-700">
+                  <strong>Category:</strong> {category}
+                </Text>
+              </div>
+            )}
+            {calories !== undefined && (
+              <div>
+                <Text variant="detail" className="text-gray-700">
+                  <strong>Calories:</strong> {calories} kcal
+                </Text>
+              </div>
+            )}
+            {cook_time !== undefined && (
+              <div>
+                <Text variant="detail" className="text-gray-700">
+                  <strong>Cook Time:</strong> {cook_time} minutes
+                </Text>
+              </div>
+            )}
+            {prep_time !== undefined && (
+              <div>
+                <Text variant="detail" className="text-gray-700">
+                  <strong>Prep Time:</strong> {prep_time} minutes
+                </Text>
+              </div>
+            )}
+            {created_at && (
+              <div>
+                <Text variant="detail" className="text-gray-700">
+                  <strong>Created On:</strong> {formatDate(created_at)}
+                </Text>
+              </div>
+            )}
+            {when_to_eat && (
+              <div>
+                <Text variant="detail" className="text-gray-700">
+                  <strong>When to Eat:</strong> {when_to_eat}
+                </Text>
+              </div>
+            )}
           </div>
-          <div className="text-sm font-medium text-gray-700">
-            <strong>Calories:</strong> {calories} kcal
-          </div>
-          <div className="text-sm font-medium text-gray-700">
-            <strong>Cook Time:</strong> {cook_time} minutes
-          </div>
-          <div className="text-sm font-medium text-gray-700">
-            <strong>Cost:</strong> ${cost}
-          </div>
-          <div className="text-sm font-medium text-gray-700">
-            <strong>Prep Time:</strong> {prep_time} minutes
-          </div>
-          <div className="text-sm font-medium text-gray-700">
-            <strong>Servings:</strong> {servings}
-          </div>
-          <div className="text-sm font-medium text-gray-700">
-            <strong>Created By:</strong> {created_at}
-          </div>
-          <div className="text-sm font-medium text-gray-700">
-            <strong>When to Eat:</strong> {when_to_eat}
-          </div>
+
+          {/* Description Section */}
+          {description && (
+            <div>
+              <Text variant="description" className="text-gray-800">
+                {description}
+              </Text>
+            </div>
+          )}
+
+          {/* Instructions Section */}
+          {instructions ? (
+            <div>
+              <Text variant="body" className="text-gray-700">
+                {instructions}
+              </Text>
+            </div>
+          ) : (
+            // Optionally, you can hide the entire block if instructions are empty:
+            <div>
+              <Text variant="body" className="text-gray-700">
+                Les instructions ne sont pas disponibles
+              </Text>
+            </div>
+          )}
         </div>
-      </div>
-
-      <div className="mb-8">
-        <Text variant="description">{description}</Text>
-      </div>
-
-      <div className="mb-8">
-        <Text variant="body">
-          {instructions || 'Les instructions ne sont pas disponibles'}
-        </Text>
       </div>
     </div>
   );

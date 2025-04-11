@@ -6,7 +6,8 @@ type TextVariant =
   | 'title-h2'
   | 'title-h3'
   | 'description'
-  | 'body';
+  | 'body'
+  | 'detail';
 
 interface TextProps {
   children: React.ReactNode;
@@ -29,6 +30,7 @@ const Text: React.FC<TextProps> = ({
       'text-xl italic': variant === 'description' && italic,
       'text-xl': variant === 'description' && !italic,
       'text-base': variant === 'body',
+      'text-sm font-medium': variant === 'detail',
     },
     className
   );
