@@ -1,10 +1,10 @@
 "use client";
 import React, { JSX, useEffect } from "react";
 import Text from "@/app/components/Text";
-import useAuthStore from "../stores/auth-store";
+import useAuthStore from "@/app/stores/auth-store";
 import { checkIfUserIsLoggedIn } from "@/app/lib/auth";
 import { gETFavorites, Recipe } from "@/api/gourmetAPI";
-import { CardGrid } from "../components/CardGrid/CardGrid";
+import { CardGrid } from "@/app/components/CardGrid/CardGrid";
 
 export default function FavoritesPage(): JSX.Element {
   const { authState, setAuthState } = useAuthStore();
