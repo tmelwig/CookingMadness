@@ -1,8 +1,8 @@
 const getHeaders = (headers?: HeadersInit): HeadersInit => {
   return {
     ...headers,
-    Accept: "application/json",
-    "Content-Type": "application/json",
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
   };
 };
 
@@ -26,8 +26,8 @@ export const httpClient = async <T>(
   }
 
   const isJson = response.headers
-    .get("content-type")
-    ?.includes("application/json");
+    .get('content-type')
+    ?.includes('application/json');
 
   let data = null;
 
