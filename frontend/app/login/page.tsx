@@ -1,12 +1,12 @@
-"use client";
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import { pOSTLogin } from "@/api/gourmetAPI";
-import useAuthStore from "@/app/stores/auth-store";
+'use client';
+import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { pOSTLogin } from '@/api/gourmetAPI';
+import useAuthStore from '@/app/stores/auth-store';
 
 const LoginPage: React.FC = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const router = useRouter();
   const { setAuthState } = useAuthStore();
 
@@ -14,14 +14,14 @@ const LoginPage: React.FC = () => {
     e.preventDefault();
     try {
       const res = await pOSTLogin({ username, password }, undefined, {
-        credentials: "include",
+        credentials: 'include',
       });
-      if ("token" in res.data && res.data.token) {
-        localStorage.setItem("token", res.data.token);
+      if ('token' in res.data && res.data.token) {
+        localStorage.setItem('token', res.data.token);
         setAuthState({ isConnected: true, username });
-        router.push("/");
+        router.push('/');
       } else {
-        throw new Error("Login failed: " + res.data);
+        throw new Error('Login failed: ' + res.data);
       }
     } catch (error) {
       console.error(error);

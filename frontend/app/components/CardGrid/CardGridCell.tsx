@@ -1,7 +1,7 @@
-import React from "react";
-import Link from "next/link";
-import Text from "@/app/components/Text";
-import Image from "next/image";
+import React from 'react';
+import Link from 'next/link';
+import Text from '@/app/components/Text';
+import Image from 'next/image';
 
 export interface GridItem {
   id?: string;
@@ -27,7 +27,7 @@ export const CardGridCell: React.FC<CardGridCellProps> = ({
             alt={`${name} image`}
             src={
               image_url ||
-              "https://fermesaintandre.com/wp-content/uploads/images_wavesoft/GPL_photo_1.jpg_mfit_c80_w621_h621.webp.webp"
+              'https://fermesaintandre.com/wp-content/uploads/images_wavesoft/GPL_photo_1.jpg_mfit_c80_w621_h621.webp.webp'
             }
             quality={100}
             fill

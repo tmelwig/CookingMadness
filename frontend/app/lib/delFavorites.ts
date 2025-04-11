@@ -1,10 +1,10 @@
-import { dELETEUsersUsernameFavorites } from "@/api/gourmetAPI";
-import { authHeaders } from "./auth";
+import { dELETEUsersUsernameFavorites } from '@/api/gourmetAPI';
+import { authHeaders } from './auth';
 
 const delFavorite = async (recipeID: string, username: string) => {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token');
   if (!token || !username) {
-    throw new Error("User is not authenticated");
+    throw new Error('User is not authenticated');
   }
 
   await dELETEUsersUsernameFavorites(
@@ -14,13 +14,13 @@ const delFavorite = async (recipeID: string, username: string) => {
       headers: authHeaders(token),
     }
   );
-  const storedFavorites = localStorage.getItem("favorites");
+  const storedFavorites = localStorage.getItem('favorites');
   let favorites: string[] = [];
   if (storedFavorites) {
     favorites = JSON.parse(storedFavorites);
   }
   const updatedFavorites = favorites.filter((id) => id !== recipeID);
-  localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+  localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
 };
 
 export { delFavorite };

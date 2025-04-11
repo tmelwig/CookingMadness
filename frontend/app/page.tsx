@@ -1,9 +1,9 @@
-import React from "react";
-import Text from "@/app/components/Text";
-import Image from "next/image";
-import { getRecipesAction } from "@/app/lib/actions/getRecipesAction";
-import { Recipe } from "@/api/gourmetAPI";
-import { CardGrid } from "@/app/components/CardGrid/CardGrid";
+import React from 'react';
+import Text from '@/app/components/Text';
+import Image from 'next/image';
+import { getRecipesAction } from '@/app/lib/actions/getRecipesAction';
+import { Recipe } from '@/api/gourmetAPI';
+import { CardGrid } from '@/app/components/CardGrid/CardGrid';
 
 export default async function HomePage() {
   let error = null;
@@ -12,7 +12,7 @@ export default async function HomePage() {
   try {
     recipes = await getRecipesAction();
   } catch {
-    error = "Erreur lors de la récupération des recettes";
+    error = 'Erreur lors de la récupération des recettes';
   }
 
   return (
@@ -38,7 +38,7 @@ export default async function HomePage() {
         <Text variant="title-h1">Recettes</Text>
         {error || recipes.length === 0 ? (
           <Text variant="description">
-            {error || "Pas de recettes disponibles"}
+            {error || 'Pas de recettes disponibles'}
           </Text>
         ) : (
           <>

@@ -1,5 +1,5 @@
-import React from "react";
-import { CardGridCell, GridItem } from "./CardGridCell";
+import React from 'react';
+import { CardGridCell, GridItem } from './CardGridCell';
 
 export interface GridProps {
   gridItems: GridItem[];

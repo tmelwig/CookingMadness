@@ -1,11 +1,11 @@
-import { gETFavorites, Recipe } from "@/api/gourmetAPI";
-import { authHeaders } from "./auth";
+import { gETFavorites, Recipe } from '@/api/gourmetAPI';
+import { authHeaders } from './auth';
 
 const getFavorites = async () => {
   try {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem('token');
     if (!token) {
-      throw new Error("User is not authenticated");
+      throw new Error('User is not authenticated');
     }
     const response = await gETFavorites({
       headers: authHeaders(token),
@@ -14,10 +14,10 @@ const getFavorites = async () => {
     if (isValidResponse) {
       return response.data.map((e) => e.recipe) as Recipe[];
     }
-    throw new Error("Failed to fetch favorites");
+    throw new Error('Failed to fetch favorites');
   } catch (error) {
     console.error(error);
-    throw new Error("Failed to fetch favorites");
+    throw new Error('Failed to fetch favorites');
   }
 };
 

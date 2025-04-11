@@ -33,7 +33,7 @@ jobs:
       - name: Run Prettier
         run: |
           cd frontend
-          npx prettier --write .
+          npx prettier --check .
 
       - name: Build Next.js project
         run: |
