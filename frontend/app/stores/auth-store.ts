@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 export type AuthState = { isConnected: boolean; username: string | null };
 

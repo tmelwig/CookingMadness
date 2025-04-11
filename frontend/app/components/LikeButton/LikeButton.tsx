@@ -1,10 +1,10 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { Recipe } from "@/api/gourmetAPI";
-import useAuthStore from "@/app/stores/auth-store";
-import { getFavorites } from "@/app/lib/getFavorites";
-import { delFavorite } from "@/app/lib/delFavorites";
-import { addFavorite } from "@/app/lib/addFavorite";
+'use client';
+import React, { useEffect, useState } from 'react';
+import { Recipe } from '@/api/gourmetAPI';
+import useAuthStore from '@/app/stores/auth-store';
+import { getFavorites } from '@/app/lib/getFavorites';
+import { delFavorite } from '@/app/lib/delFavorites';
+import { addFavorite } from '@/app/lib/addFavorite';
 
 type LikeToggleProps = {
   recetteID: string;
@@ -18,14 +18,14 @@ export const LikeToggle = ({ recetteID }: LikeToggleProps) => {
 
   useEffect(() => {
     async function getLikedState() {
-      const storedFavorites = localStorage.getItem("favorites");
+      const storedFavorites = localStorage.getItem('favorites');
       let favorites: Recipe[] = [];
       if (storedFavorites) {
         favorites = JSON.parse(storedFavorites);
       } else {
         favorites = await getFavorites();
         localStorage.setItem(
-          "favorites",
+          'favorites',
           JSON.stringify(favorites.map((recipe) => recipe.id))
         );
       }
@@ -37,9 +37,9 @@ export const LikeToggle = ({ recetteID }: LikeToggleProps) => {
   }, [recetteID]);
 
   const handleClick = () => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem('token');
     if (!token || !authState?.username) {
-      console.error("User is not authenticated");
+      console.error('User is not authenticated');
       return;
     }
 
@@ -69,7 +69,7 @@ export const LikeToggle = ({ recetteID }: LikeToggleProps) => {
       />
       <div
         className={`transition-transform duration-200 ease-in-out inline-block ${
-          isBumping ? "scale-115" : ""
+          isBumping ? 'scale-115' : ''
         }`}
       >
         {isLiked ? (

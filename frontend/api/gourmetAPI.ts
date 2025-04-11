@@ -108,7 +108,7 @@ func getAllPets(ctx fuego.ContextNoBody) (*MyResponse, error) {
 
  * OpenAPI spec version: 0.0.1
  */
-import { httpClient } from "./orvalCustomClient";
+import { httpClient } from './orvalCustomClient';
 /**
  * CreateDosingParams schema
  */
@@ -470,7 +470,7 @@ export const getGETAdminUrl = (params?: GETAdminParams) => {
 
   Object.entries(params || {}).forEach(([key, value]) => {
     if (value !== undefined) {
-      normalizedParams.append(key, value === null ? "null" : value.toString());
+      normalizedParams.append(key, value === null ? 'null' : value.toString());
     }
   });
 
@@ -487,7 +487,7 @@ export const gETAdmin = async (
 ): Promise<gETAdminResponse> => {
   return httpClient<gETAdminResponse>(getGETAdminUrl(params), {
     ...options,
-    method: "GET",
+    method: 'GET',
   });
 };
 
@@ -537,8 +537,8 @@ export const pOSTAdminDosingsNew = async (
 ): Promise<pOSTAdminDosingsNewResponse> => {
   return httpClient<pOSTAdminDosingsNewResponse>(getPOSTAdminDosingsNewUrl(), {
     ...options,
-    method: "POST",
-    headers: { "Content-Type": "*/*", ...options?.headers },
+    method: 'POST',
+    headers: { 'Content-Type': '*/*', ...options?.headers },
     body: JSON.stringify(createDosingParams),
   });
 };
@@ -586,7 +586,7 @@ export const getGETAdminIngredientsUrl = (
 
   Object.entries(params || {}).forEach(([key, value]) => {
     if (value !== undefined) {
-      normalizedParams.append(key, value === null ? "null" : value.toString());
+      normalizedParams.append(key, value === null ? 'null' : value.toString());
     }
   });
 
@@ -605,7 +605,7 @@ export const gETAdminIngredients = async (
     getGETAdminIngredientsUrl(params),
     {
       ...options,
-      method: "GET",
+      method: 'GET',
     }
   );
 };
@@ -658,8 +658,8 @@ export const gETAdminIngredientsCreate = async (
     getGETAdminIngredientsCreateUrl(),
     {
       ...options,
-      method: "GET",
-      headers: { "Content-Type": "*/*", ...options?.headers },
+      method: 'GET',
+      headers: { 'Content-Type': '*/*', ...options?.headers },
       body: JSON.stringify(createIngredientParams),
     }
   );
@@ -713,8 +713,8 @@ export const pOSTAdminIngredientsNew = async (
     getPOSTAdminIngredientsNewUrl(),
     {
       ...options,
-      method: "POST",
-      headers: { "Content-Type": "*/*", ...options?.headers },
+      method: 'POST',
+      headers: { 'Content-Type': '*/*', ...options?.headers },
       body: JSON.stringify(createIngredientParams),
     }
   );
@@ -760,7 +760,7 @@ export const getGETAdminRecipesUrl = (params?: GETAdminRecipesParams) => {
 
   Object.entries(params || {}).forEach(([key, value]) => {
     if (value !== undefined) {
-      normalizedParams.append(key, value === null ? "null" : value.toString());
+      normalizedParams.append(key, value === null ? 'null' : value.toString());
     }
   });
 
@@ -777,7 +777,7 @@ export const gETAdminRecipes = async (
 ): Promise<gETAdminRecipesResponse> => {
   return httpClient<gETAdminRecipesResponse>(getGETAdminRecipesUrl(params), {
     ...options,
-    method: "GET",
+    method: 'GET',
   });
 };
 
@@ -826,8 +826,8 @@ export const pOSTAdminRecipes = async (
 ): Promise<pOSTAdminRecipesResponse> => {
   return httpClient<pOSTAdminRecipesResponse>(getPOSTAdminRecipesUrl(), {
     ...options,
-    method: "POST",
-    headers: { "Content-Type": "*/*", ...options?.headers },
+    method: 'POST',
+    headers: { 'Content-Type': '*/*', ...options?.headers },
     body: JSON.stringify(createRecipeParams),
   });
 };
@@ -879,7 +879,7 @@ export const gETAdminRecipesCreate = async (
     getGETAdminRecipesCreateUrl(),
     {
       ...options,
-      method: "GET",
+      method: 'GET',
     }
   );
 };
@@ -930,8 +930,8 @@ export const pUTAdminRecipesEdit = async (
 ): Promise<pUTAdminRecipesEditResponse> => {
   return httpClient<pUTAdminRecipesEditResponse>(getPUTAdminRecipesEditUrl(), {
     ...options,
-    method: "PUT",
-    headers: { "Content-Type": "*/*", ...options?.headers },
+    method: 'PUT',
+    headers: { 'Content-Type': '*/*', ...options?.headers },
     body: JSON.stringify(updateRecipeParams),
   });
 };
@@ -982,8 +982,8 @@ export const pOSTAdminRecipesNew = async (
 ): Promise<pOSTAdminRecipesNewResponse> => {
   return httpClient<pOSTAdminRecipesNewResponse>(getPOSTAdminRecipesNewUrl(), {
     ...options,
-    method: "POST",
-    headers: { "Content-Type": "*/*", ...options?.headers },
+    method: 'POST',
+    headers: { 'Content-Type': '*/*', ...options?.headers },
     body: JSON.stringify(createRecipeParams),
   });
 };
@@ -1036,7 +1036,7 @@ export const dELETEAdminRecipesId = async (
     getDELETEAdminRecipesIdUrl(id),
     {
       ...options,
-      method: "DELETE",
+      method: 'DELETE',
     }
   );
 };
@@ -1087,8 +1087,8 @@ export const gETAdminRecipesId = async (
 ): Promise<gETAdminRecipesIdResponse> => {
   return httpClient<gETAdminRecipesIdResponse>(getGETAdminRecipesIdUrl(id), {
     ...options,
-    method: "GET",
-    headers: { "Content-Type": "*/*", ...options?.headers },
+    method: 'GET',
+    headers: { 'Content-Type': '*/*', ...options?.headers },
     body: JSON.stringify(updateRecipeParams),
   });
 };
@@ -1139,8 +1139,8 @@ export const pUTAdminRecipesId = async (
 ): Promise<pUTAdminRecipesIdResponse> => {
   return httpClient<pUTAdminRecipesIdResponse>(getPUTAdminRecipesIdUrl(id), {
     ...options,
-    method: "PUT",
-    headers: { "Content-Type": "*/*", ...options?.headers },
+    method: 'PUT',
+    headers: { 'Content-Type': '*/*', ...options?.headers },
     body: JSON.stringify(updateRecipeParams),
   });
 };
@@ -1189,7 +1189,7 @@ export const gETAdminUsers = async (
 ): Promise<gETAdminUsersResponse> => {
   return httpClient<gETAdminUsersResponse>(getGETAdminUsersUrl(), {
     ...options,
-    method: "GET",
+    method: 'GET',
   });
 };
 
@@ -1238,8 +1238,8 @@ export const pOSTAdminUsers = async (
 ): Promise<pOSTAdminUsersResponse> => {
   return httpClient<pOSTAdminUsersResponse>(getPOSTAdminUsersUrl(), {
     ...options,
-    method: "POST",
-    headers: { "Content-Type": "*/*", ...options?.headers },
+    method: 'POST',
+    headers: { 'Content-Type': '*/*', ...options?.headers },
     body: JSON.stringify(createUserPayload),
   });
 };
@@ -1287,7 +1287,7 @@ export const gETConnection = async (
 ): Promise<gETConnectionResponse> => {
   return httpClient<gETConnectionResponse>(getGETConnectionUrl(), {
     ...options,
-    method: "GET",
+    method: 'GET',
   });
 };
 
@@ -1332,7 +1332,7 @@ export const gETFast = async (
 ): Promise<gETFastResponse> => {
   return httpClient<gETFastResponse>(getGETFastUrl(), {
     ...options,
-    method: "GET",
+    method: 'GET',
   });
 };
 
@@ -1379,7 +1379,7 @@ export const gETFavorites = async (
 ): Promise<gETFavoritesResponse> => {
   return httpClient<gETFavoritesResponse>(getGETFavoritesUrl(), {
     ...options,
-    method: "GET",
+    method: 'GET',
   });
 };
 
@@ -1426,7 +1426,7 @@ export const gETHealthy = async (
 ): Promise<gETHealthyResponse> => {
   return httpClient<gETHealthyResponse>(getGETHealthyUrl(), {
     ...options,
-    method: "GET",
+    method: 'GET',
   });
 };
 
@@ -1473,7 +1473,7 @@ export const gETIngredients = async (
 ): Promise<gETIngredientsResponse> => {
   return httpClient<gETIngredientsResponse>(getGETIngredientsUrl(), {
     ...options,
-    method: "GET",
+    method: 'GET',
   });
 };
 
@@ -1519,7 +1519,7 @@ export const getGETIngredientsPreselectUnitUrl = (
 
   Object.entries(params || {}).forEach(([key, value]) => {
     if (value !== undefined) {
-      normalizedParams.append(key, value === null ? "null" : value.toString());
+      normalizedParams.append(key, value === null ? 'null' : value.toString());
     }
   });
 
@@ -1538,7 +1538,7 @@ export const gETIngredientsPreselectUnit = async (
     getGETIngredientsPreselectUnitUrl(params),
     {
       ...options,
-      method: "GET",
+      method: 'GET',
     }
   );
 };
@@ -1582,7 +1582,7 @@ export const getPOSTLoginUrl = (params?: POSTLoginParams) => {
 
   Object.entries(params || {}).forEach(([key, value]) => {
     if (value !== undefined) {
-      normalizedParams.append(key, value === null ? "null" : value.toString());
+      normalizedParams.append(key, value === null ? 'null' : value.toString());
     }
   });
 
@@ -1600,8 +1600,8 @@ export const pOSTLogin = async (
 ): Promise<pOSTLoginResponse> => {
   return httpClient<pOSTLoginResponse>(getPOSTLoginUrl(params), {
     ...options,
-    method: "POST",
-    headers: { "Content-Type": "*/*", ...options?.headers },
+    method: 'POST',
+    headers: { 'Content-Type': '*/*', ...options?.headers },
     body: JSON.stringify(loginPayload),
   });
 };
@@ -1649,7 +1649,7 @@ export const gETLogout = async (
 ): Promise<gETLogoutResponse> => {
   return httpClient<gETLogoutResponse>(getGETLogoutUrl(), {
     ...options,
-    method: "GET",
+    method: 'GET',
   });
 };
 
@@ -1692,7 +1692,7 @@ export const getGETMeUrl = () => {
 export const gETMe = async (options?: RequestInit): Promise<gETMeResponse> => {
   return httpClient<gETMeResponse>(getGETMeUrl(), {
     ...options,
-    method: "GET",
+    method: 'GET',
   });
 };
 
@@ -1739,7 +1739,7 @@ export const gETPlanner = async (
 ): Promise<gETPlannerResponse> => {
   return httpClient<gETPlannerResponse>(getGETPlannerUrl(), {
     ...options,
-    method: "GET",
+    method: 'GET',
   });
 };
 
@@ -1786,7 +1786,7 @@ export const gETRecipes = async (
 ): Promise<gETRecipesResponse> => {
   return httpClient<gETRecipesResponse>(getGETRecipesUrl(), {
     ...options,
-    method: "GET",
+    method: 'GET',
   });
 };
 
@@ -1830,7 +1830,7 @@ export const getGETRecipesListUrl = (params?: GETRecipesListParams) => {
 
   Object.entries(params || {}).forEach(([key, value]) => {
     if (value !== undefined) {
-      normalizedParams.append(key, value === null ? "null" : value.toString());
+      normalizedParams.append(key, value === null ? 'null' : value.toString());
     }
   });
 
@@ -1847,7 +1847,7 @@ export const gETRecipesList = async (
 ): Promise<gETRecipesListResponse> => {
   return httpClient<gETRecipesListResponse>(getGETRecipesListUrl(params), {
     ...options,
-    method: "GET",
+    method: 'GET',
   });
 };
 
@@ -1895,7 +1895,7 @@ export const gETRecipesStd = async (
 ): Promise<gETRecipesStdResponse> => {
   return httpClient<gETRecipesStdResponse>(getGETRecipesStdUrl(), {
     ...options,
-    method: "GET",
+    method: 'GET',
   });
 };
 
@@ -1943,7 +1943,7 @@ export const gETRecipesStdJson = async (
 ): Promise<gETRecipesStdJsonResponse> => {
   return httpClient<gETRecipesStdJsonResponse>(getGETRecipesStdJsonUrl(), {
     ...options,
-    method: "GET",
+    method: 'GET',
   });
 };
 
@@ -1991,7 +1991,7 @@ export const gETRecipesId = async (
 ): Promise<gETRecipesIdResponse> => {
   return httpClient<gETRecipesIdResponse>(getGETRecipesIdUrl(id), {
     ...options,
-    method: "GET",
+    method: 'GET',
   });
 };
 
@@ -2042,7 +2042,7 @@ export const gETRecipesIdRelated = async (
     getGETRecipesIdRelatedUrl(id),
     {
       ...options,
-      method: "GET",
+      method: 'GET',
     }
   );
 };
@@ -2091,7 +2091,7 @@ export const gETRecipesIdStars = async (
 ): Promise<gETRecipesIdStarsResponse> => {
   return httpClient<gETRecipesIdStarsResponse>(getGETRecipesIdStarsUrl(id), {
     ...options,
-    method: "GET",
+    method: 'GET',
   });
 };
 
@@ -2142,7 +2142,7 @@ export const gETRecipesIdStarsFake = async (
     getGETRecipesIdStarsFakeUrl(id),
     {
       ...options,
-      method: "GET",
+      method: 'GET',
     }
   );
 };
@@ -2191,7 +2191,7 @@ export const gETRobotsTxt = async (
 ): Promise<gETRobotsTxtResponse> => {
   return httpClient<gETRobotsTxtResponse>(getGETRobotsTxtUrl(), {
     ...options,
-    method: "GET",
+    method: 'GET',
   });
 };
 
@@ -2234,7 +2234,7 @@ export const getGETSearchUrl = (params: GETSearchParams) => {
 
   Object.entries(params || {}).forEach(([key, value]) => {
     if (value !== undefined) {
-      normalizedParams.append(key, value === null ? "null" : value.toString());
+      normalizedParams.append(key, value === null ? 'null' : value.toString());
     }
   });
 
@@ -2251,7 +2251,7 @@ export const gETSearch = async (
 ): Promise<gETSearchResponse> => {
   return httpClient<gETSearchResponse>(getGETSearchUrl(params), {
     ...options,
-    method: "GET",
+    method: 'GET',
   });
 };
 
@@ -2301,7 +2301,7 @@ export const gETUsersUsername = async (
     getGETUsersUsernameUrl(username),
     {
       ...options,
-      method: "GET",
+      method: 'GET',
     }
   );
 };
@@ -2349,7 +2349,7 @@ export const getDELETEUsersUsernameFavoritesUrl = (
 
   Object.entries(params || {}).forEach(([key, value]) => {
     if (value !== undefined) {
-      normalizedParams.append(key, value === null ? "null" : value.toString());
+      normalizedParams.append(key, value === null ? 'null' : value.toString());
     }
   });
 
@@ -2369,7 +2369,7 @@ export const dELETEUsersUsernameFavorites = async (
     getDELETEUsersUsernameFavoritesUrl(username, params),
     {
       ...options,
-      method: "DELETE",
+      method: 'DELETE',
     }
   );
 };
@@ -2421,7 +2421,7 @@ export const gETUsersUsernameFavorites = async (
     getGETUsersUsernameFavoritesUrl(username),
     {
       ...options,
-      method: "GET",
+      method: 'GET',
     }
   );
 };
@@ -2469,7 +2469,7 @@ export const getPOSTUsersUsernameFavoritesUrl = (
 
   Object.entries(params || {}).forEach(([key, value]) => {
     if (value !== undefined) {
-      normalizedParams.append(key, value === null ? "null" : value.toString());
+      normalizedParams.append(key, value === null ? 'null' : value.toString());
     }
   });
 
@@ -2489,7 +2489,7 @@ export const pOSTUsersUsernameFavorites = async (
     getPOSTUsersUsernameFavoritesUrl(username, params),
     {
       ...options,
-      method: "POST",
+      method: 'POST',
     }
   );
 };
@@ -2543,7 +2543,7 @@ export const gETUsersUsernameFavoritesSqlinjection = async (
     getGETUsersUsernameFavoritesSqlinjectionUrl(username),
     {
       ...options,
-      method: "GET",
+      method: 'GET',
     }
   );
 };

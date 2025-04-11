@@ -1,9 +1,9 @@
-import React, { JSX } from "react";
-import Text from "@/app/components/Text";
-import { notFound } from "next/navigation";
-import Image from "next/image";
-import { LikeToggle } from "@/app/components/LikeButton/LikeButton";
-import { gETRecipesId } from "@/api/gourmetAPI";
+import React, { JSX } from 'react';
+import Text from '@/app/components/Text';
+import { notFound } from 'next/navigation';
+import Image from 'next/image';
+import { LikeToggle } from '@/app/components/LikeButton/LikeButton';
+import { gETRecipesId } from '@/api/gourmetAPI';
 
 export default async function RecipePage({
   params,
@@ -49,7 +49,7 @@ export default async function RecipePage({
         {image_url && (
           <Image
             src={image_url}
-            alt={name || "Recipe"}
+            alt={name || 'Recipe'}
             className="w-full h-auto max-w-xl rounded-lg shadow-lg mb-4"
             width={400}
             height={400}
@@ -90,7 +90,7 @@ export default async function RecipePage({
 
       <div className="mb-8">
         <Text variant="body">
-          {instructions || "Les instructions ne sont pas disponibles"}
+          {instructions || 'Les instructions ne sont pas disponibles'}
         </Text>
       </div>
     </div>
