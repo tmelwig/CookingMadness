@@ -8,7 +8,7 @@ const LoginPage: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
-  const { setAuthState } = useAuthStore();
+  const { connect } = useAuthStore();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ const LoginPage: React.FC = () => {
       });
       if ('token' in res.data && res.data.token) {
         localStorage.setItem('token', res.data.token);
-        setAuthState({ isConnected: true, username });
+        connect(res.data.token);
         router.push('/');
       } else {
         throw new Error('Login failed: ' + res.data);
