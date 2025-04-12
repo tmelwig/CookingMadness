@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { pOSTLogin } from '@/api/gourmetAPI';
 import useAuthStore from '@/app/stores/auth-store';
+import Text from '@/app/components/Text';
 
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -31,30 +32,32 @@ const LoginPage: React.FC = () => {
   return (
     <div className="flex justify-center items-center h-screen">
       <form onSubmit={handleSubmit} className="w-80 text-center">
-        <h2 className="text-2xl font-bold mb-4">Login</h2>
+        <Text variant="title-h1" className="mb-4">
+          Se connecter
+        </Text>
         <div className="mb-4">
           <input
             type="text"
-            placeholder="Username"
+            placeholder="Nom d'utilisateur"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="w-full p-2 mb-2 border border-gray-300 rounded"
+            className="w-full p-2 mb-2 border border-gray-500 rounded"
             required
           />
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Mot de passe"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full p-2 border border-gray-300 rounded"
+            className="w-full p-2 border border-gray-500 rounded"
             required
           />
         </div>
         <button
           type="submit"
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          className="px-4 py-2 bg-[var(--bg-tertiary)] text-white rounded hover:bg-[var(--bg-light-tertiary)]"
         >
-          Login
+          Connexion
         </button>
       </form>
     </div>

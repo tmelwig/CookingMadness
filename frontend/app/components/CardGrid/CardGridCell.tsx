@@ -33,10 +33,10 @@ export const CardGridCell: React.FC<CardGridCellProps> = ({
             fill
             className="object-cover"
           />
-          <div className="absolute bottom-0 left-0 w-full h-1/5 bg-black opacity-70">
+          <div className="absolute bottom-0 left-0 w-full h-1/5 bg-[var(--fg-primary)] opacity-70">
             <Text
               variant="title-h3"
-              className="absolute bottom-2 left-2 text-white px-2 py-1 rounded"
+              className="absolute bottom-2 left-2 text-[var(--text-primary)] px-2 py-1 rounded"
             >
               {name}
             </Text>
