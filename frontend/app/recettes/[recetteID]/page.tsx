@@ -55,46 +55,46 @@ export default async function RecipePage({
             sizes="(max-width: 400px) 100vw, 400px"
           />
         )}
-        <div className="bg-white p-6 rounded-lg shadow-md space-y-8 mx-auto w-[70%]">
+        <div className="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md space-y-8 mx-auto w-[70%]">
           <div className="grid grid-cols-2 gap-4">
             {category && (
               <div>
-                <Text variant="detail" className="text-gray-700">
+                <Text variant="detail">
                   <strong>Category:</strong> {category}
                 </Text>
               </div>
             )}
             {calories !== undefined && (
               <div>
-                <Text variant="detail" className="text-gray-700">
+                <Text variant="detail">
                   <strong>Calories:</strong> {calories} kcal
                 </Text>
               </div>
             )}
             {cook_time !== undefined && (
               <div>
-                <Text variant="detail" className="text-gray-700">
+                <Text variant="detail">
                   <strong>Cook Time:</strong> {cook_time} minutes
                 </Text>
               </div>
             )}
             {prep_time !== undefined && (
               <div>
-                <Text variant="detail" className="text-gray-700">
+                <Text variant="detail">
                   <strong>Prep Time:</strong> {prep_time} minutes
                 </Text>
               </div>
             )}
             {created_at && (
               <div>
-                <Text variant="detail" className="text-gray-700">
+                <Text variant="detail">
                   <strong>Created On:</strong> {formatDate(created_at)}
                 </Text>
               </div>
             )}
             {when_to_eat && (
               <div>
-                <Text variant="detail" className="text-gray-700">
+                <Text variant="detail">
                   <strong>When to Eat:</strong> {when_to_eat}
                 </Text>
               </div>
@@ -104,23 +104,18 @@ export default async function RecipePage({
           {/* Description Section */}
           {description && (
             <div>
-              <Text variant="description" className="text-gray-800">
-                {description}
-              </Text>
+              <Text variant="title-h3">{description}</Text>
             </div>
           )}
 
           {/* Instructions Section */}
           {instructions ? (
             <div>
-              <Text variant="body" className="text-gray-700">
-                {instructions}
-              </Text>
+              <Text variant="body">{instructions}</Text>
             </div>
           ) : (
-            // Optionally, you can hide the entire block if instructions are empty:
             <div>
-              <Text variant="body" className="text-gray-700">
+              <Text variant="body">
                 Les instructions ne sont pas disponibles
               </Text>
             </div>

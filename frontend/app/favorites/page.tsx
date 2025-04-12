@@ -54,7 +54,7 @@ function FavoritesList(): JSX.Element {
   }, [setFavorites, token]);
 
   return (
-    <div>
+    <div className="p-5 bg-[var(--bg-primary)]">
       <Text variant="title-h1">Favoris</Text>
       <CardGrid gridItems={favorites} />
     </div>

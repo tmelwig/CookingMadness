@@ -1,0 +1,25 @@
+:root {
+  --bg-primary: #fec5a1; /* Primary background */
+  --bg-secondary: #f7dcbe; /* Secondary background */
+  --bg-tertiary: #d45101; /* Tertiary background */
+  --bg-light-tertiary: #f9a147; /* Light tertiary background */
+
+  --fg-primary: #fb9a4a; /* Primary foreground */
+
+  --text-primary: #000000; /* Primary text */
+  --text-secondary: #343434; /* Secondary text */
+  --text-tertiary: #999999; /* Tertiary text */
+}
+
+.dark {
+  --bg-primary: #1d1d1d;
+  --bg-secondary: #333333;
+  --bg-tertiary: #d45101;
+  --bg-light-tertiary: #f9a147;
+
+  --fg-primary: #080808;
+
+  --text-primary: #f1f1f1;
+  --text-secondary: #d1d1d1;
+  --text-tertiary: #b1b1b1;
+}

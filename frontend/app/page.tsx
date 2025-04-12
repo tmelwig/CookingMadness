@@ -34,7 +34,7 @@ export default async function HomePage() {
           Cooking Madness
         </Text>
       </div>
-      <div className="p-5 bg-neutral-100">
+      <div className="p-5 bg-[var(--bg-primary)]">
         <Text variant="title-h1">Recettes</Text>
         {error || recipes.length === 0 ? (
           <Text variant="description">

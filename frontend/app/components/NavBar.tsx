@@ -5,9 +5,11 @@ import Link from 'next/link';
 import { checkIfUserIsLoggedIn } from '@/app/lib/auth';
 import useAuthStore from '@/app/stores/auth-store';
 import { toast } from 'sonner';
+import { useTheme } from 'next-themes';
 
 export default function NavBar(): JSX.Element {
   const { authState, disconnect, setAuthState } = useAuthStore();
+  const { theme, setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => {
     const checkIfLoggedIn = async () => {
@@ -22,10 +24,14 @@ export default function NavBar(): JSX.Element {
     disconnect();
   };
 
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+
   return (
-    <nav className="bg-custom-dark-orange text-white p-4">
+    <nav className="bg-[var(--bg-tertiary)] text-white p-4">
       <div className="container mx-auto flex justify-between">
-        <Link href="/" className="text-lg font-bold">
+        <Link href="/" className="text-lg">
           Recettes
         </Link>
         {authState.isConnected && (
@@ -42,6 +48,14 @@ export default function NavBar(): JSX.Element {
             Connexion
           </Link>
         )}
+        <button
+          onClick={toggleTheme}
+          className="text-2xl transition hover:scale-110 focus:outline-none"
+          aria-label="Toggle theme"
+          title={resolvedTheme === 'dark' ? 'Light mode' : 'Dark mode'}
+        >
+          {resolvedTheme === 'dark' ? '☀️' : '🌙'}
+        </button>
       </div>
     </nav>
   );
