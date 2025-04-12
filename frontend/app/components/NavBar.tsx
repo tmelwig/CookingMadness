@@ -4,9 +4,10 @@ import { JSX, useEffect } from 'react';
 import Link from 'next/link';
 import { checkIfUserIsLoggedIn } from '@/app/lib/auth';
 import useAuthStore from '@/app/stores/auth-store';
+import { toast } from 'sonner';
 
 export default function NavBar(): JSX.Element {
-  const { authState, setAuthState } = useAuthStore();
+  const { authState, disconnect, setAuthState } = useAuthStore();
 
   useEffect(() => {
     const checkIfLoggedIn = async () => {
@@ -17,7 +18,8 @@ export default function NavBar(): JSX.Element {
 
   const handleLogout = () => {
     localStorage.removeItem('token');
-    setAuthState({ isConnected: false, username: null });
+    toast.success('Vous avez bien été déconnecté');
+    disconnect();
   };
 
   return (
