@@ -20,7 +20,8 @@ Cooking Madness is a web application designed to manage a list of recipes. It pr
 - **Frontend**: Built with [React](https://reactjs.org) and [Next.js](https://nextjs.org).
 - **Backend API**: Interacts with the [Gourmet API](https://gourmet.cours.quimerch.com). API documentation is available via [OpenAPI](https://gourmet.cours.quimerch.com/swagger/index.html).
 - **State Management**: Utilizes [Zustand](https://zustand-demo.pmnd.rs/) for managing application state.
-- **Styling**: Tailwind CSS for responsive and modern UI design.
+- **Styling**: Tailwind CSS is used for creating a responsive and modern user interface, ensuring a consistent design system across the application.
+- **Testing**: Jest is utilized for unit and integration testing, ensuring code reliability and robustness.
 
 ## Deployment
 
