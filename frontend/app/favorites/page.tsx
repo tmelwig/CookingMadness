@@ -56,7 +56,11 @@ function FavoritesList(): JSX.Element {
   return (
     <div className="p-5 bg-[var(--bg-primary)]">
       <Text variant="title-h1">Favoris</Text>
-      <CardGrid gridItems={favorites} />
+      {favorites.length === 0 ? (
+        <Text variant="description">Pas de favori disponible</Text>
+      ) : (
+        <CardGrid gridItems={favorites} />
+      )}
     </div>
   );
 }
