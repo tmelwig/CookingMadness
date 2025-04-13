@@ -10,7 +10,7 @@ Cooking Madness is a web application designed to manage a list of recipes. It pr
     - Login with a provided username and password.
     - Logout functionality.
 - **Favorites Management**:
-    Once you are connected:
+    (Once you are connected)
     - Add recipes to your favorites.
     - Remove recipes from your favorites.
     - View your favorite recipes on the `/favorites` page.
@@ -65,7 +65,7 @@ Cooking Madness is a web application designed to manage a list of recipes. It pr
 
 ## CI/CD
 
-- **GitHub Actions**: Automated workflows for linting, formatting, building, and publishing Docker images are configured in `.github/workflows`.
+- **GitHub Actions**: Automated workflows for linting, formatting, testing, building, and publishing Docker images are configured in `.github/workflows`.
 
 ## Links
 
